@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import type { Product } from "@/lib/types";
+import type { Category, Product } from "@/lib/types";
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
 
 type Props = {
   products: Product[];
+  categories: Category[];
 };
 
 const ITEMS_PER_PAGE = 6;
 
-export default function MobileCatalogue({ products }: Props) {
+export default function MobileCatalogue({ products, categories: _categories }: Props) {
   const [page, setPage] = useState(1);
   const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
   const start = (page - 1) * ITEMS_PER_PAGE;

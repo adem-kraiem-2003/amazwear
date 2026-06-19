@@ -24,6 +24,14 @@ export async function getProducts(category?: string): Promise<Product[]> {
   return data.results;
 }
 
+export async function getProductsBySlugs(slugs: string[]): Promise<Product[]> {
+  if (!slugs.length) return [];
+  return apiFetch<Product[]>(
+    `/products/by-slugs/?ids=${slugs.map(encodeURIComponent).join(",")}`,
+    { next: { revalidate: 60 } }
+  );
+}
+
 export async function getProduct(slug: string): Promise<Product> {
   return apiFetch<Product>(`/products/${slug}/`, { next: { revalidate: 60 } });
 }
