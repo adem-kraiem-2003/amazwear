@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE - Secure Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9f9",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c8",
+                        "inverse-surface": "#2f3131",
+                        "on-surface-variant": "#4c4546",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary": "#5e5e5e",
+                        "primary": "#000000",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#838486",
+                        "secondary-container": "#e1dfdf",
+                        "on-tertiary-fixed-variant": "#454749",
+                        "inverse-primary": "#c6c6c6",
+                        "surface-tint": "#5e5e5e",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-container": "#eeeeee",
+                        "outline": "#7e7576",
+                        "surface-variant": "#e2e2e2",
+                        "on-surface": "#1a1c1c",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "tertiary": "#000000",
+                        "on-primary-fixed-variant": "#474747",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#e2e2e4",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-container": "#1a1c1d",
+                        "secondary-fixed": "#e4e2e2",
+                        "on-primary-container": "#848484",
+                        "primary-container": "#1b1b1b",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f3f3f4",
+                        "outline-variant": "#cfc4c5",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-secondary-container": "#626262"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "aspect-ratio": "4:5",
+                        "margin-desktop": "64px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        .input-subtle {
+            border: none;
+            border-bottom: 1px solid #cfc4c5;
+            background-color: transparent;
+            border-radius: 0;
+            padding: 12px 0;
+            transition: border-color 0.2s ease;
+        }
+        .input-subtle:focus {
+            outline: none;
+            border-bottom-color: #000000;
+            box-shadow: none;
+        }
+        .input-subtle::placeholder {
+            color: #7e7576;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar (Transactional - Suppressed Navigation Links per strict guidelines, maintaining brand anchor) -->
+<header class="bg-surface w-full z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
+<div class="w-1/3"></div> <!-- Spacer for centering -->
+<div class="flex-grow text-center">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary" href="/">LUXE</a>
+</div>
+<div class="w-1/3 flex justify-end items-center gap-6">
+<span class="material-symbols-outlined text-primary scale-98 active:scale-95 transition-transform" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-margin-desktop py-12 flex flex-col md:flex-row gap-16">
+<!-- Left Column: Checkout Forms -->
+<div class="w-full md:w-[60%] flex flex-col gap-12">
+<!-- Contact Information -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Contact Information</h2>
+<div class="flex flex-col gap-4">
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="Email Address" required="" type="email"/>
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="Phone Number" type="tel"/>
+</div>
+</section>
+<!-- Shipping Details -->
+<section>
+<h2 class="font-headline-md text-headline-md text-primary mb-6">Shipping Details</h2>
+<div class="flex flex-col gap-6">
+<div class="grid grid-cols-2 gap-4">
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="First Name" required="" type="text"/>
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="Last Name" required="" type="text"/>
+</div>
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="Address" required="" type="text"/>
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="Apartment, suite, etc. (optional)" type="text"/>
+<div class="grid grid-cols-2 gap-4">
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="City" required="" type="text"/>
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="State / Province" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<input class="input-subtle font-body-md text-body-md text-on-surface w-full" placeholder="ZIP / Postal Code" required="" type="text"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="w-full md:w-[40%]">
+<div class="sticky top-8 bg-surface-container-lowest p-8 rounded-lg border border-surface-variant flex flex-col gap-8">
+<h2 class="font-headline-md text-headline-md text-primary">Order Summary</h2>
+<!-- Product Item -->
+<div class="flex gap-6 items-start border-b border-surface-variant pb-6">
+<div class="w-24 h-32 bg-surface-container rounded-DEFAULT overflow-hidden flex-shrink-0">
+<img alt="Luxe Ceramic Cup" class="w-full h-full object-cover" data-alt="A minimalist, high-end matte black ceramic cup resting on a pristine white marble surface. Soft, diffused natural light creates gentle highlights on the cup's textured surface, emphasizing its premium quality and clean geometric lines. The scene is photographed in an editorial style, bright and modern, perfectly matching a luxurious high-key aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJ6-so0OPxdUYLgumJ6802Lqvu59qzNSDVnDIA_ri2SjEDcXQUfJfk1cscmrrFA_fzwJYgEufsK5bRpMQ9hAQAT0FxmGAGloXi6IJX0I4-BSX0P0sI2OYeb3Rd4pu172vMQ2X-W_lEdO7GXX9WAxXafww1qSiWcEnB1_xuayqIia-Tdb1DZiSOq1wiepdDkF6d-eB_A9XnQsJ_NzcmZ1C74e8lJ-4TIklHIPP0AcqzGVN1hr06Dya2mh-d47ULG1Q8EommGi6sos"/>
+</div>
+<div class="flex flex-col flex-grow justify-between h-full py-1">
+<div>
+<h3 class="font-body-md text-body-md font-semibold text-primary">Luxe Ceramic Cup</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">Matte Black / Standard</p>
+</div>
+<p class="font-body-md text-body-md text-primary mt-4">$45.00</p>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="flex flex-col gap-3 font-body-md text-body-md text-secondary">
+<div class="flex justify-between">
+<span>Subtotal</span>
+<span class="text-primary">$45.00</span>
+</div>
+<div class="flex justify-between">
+<span>Shipping</span>
+<span class="text-primary">$4.05</span>
+</div>
+<div class="flex justify-between">
+<span>Taxes</span>
+<span class="text-primary">$0.00</span>
+</div>
+<div class="flex justify-between font-semibold text-primary pt-4 border-t border-surface-variant text-body-lg">
+<span>Total</span>
+<span>$49.05</span>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-4 mt-4">
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-4 rounded-DEFAULT hover:opacity-90 transition-opacity scale-98 active:scale-95">
+                        Complete Order
+                    </button>
+<div class="flex items-center justify-center gap-2 text-secondary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span>
+<span>Secure Checkout</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface w-full mt-auto border-t border-surface-variant">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-12 max-w-[1440px] mx-auto">
+<div class="font-display-lg text-display-lg font-bold text-primary mb-4 md:mb-0">LUXE</div>
+<div class="flex gap-6 font-label-sm text-label-sm text-secondary">
+<a class="hover:underline transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="hover:underline transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="hover:underline transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
+</div>
+<div class="font-label-sm text-label-sm text-secondary mt-4 md:mt-0">
+                © 2024 LUXE. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

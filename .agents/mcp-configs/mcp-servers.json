@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      },
+      "description": "GitHub operations - PRs, issues, repos"
+    },
+    "context7": {
+      "command": "npx",
+      "args": ["@upstash/context7-mcp@latest"],
+      "description": "Live documentation lookup"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp", "--browser", "chrome"],
+      "description": "Browser automation and testing via Playwright"
+    }
+  },
+  "_comments": {
+    "usage": "Minimal set for Nouri Fashion. Supabase lives in project .mcp.json (HTTP transport).",
+    "removed": "26 servers removed on 2026-06-06 per AgentShield audit (F→target B). Originals in git history.",
+    "env_vars": "Use environment variable references — never hardcode tokens"
+  }
+}

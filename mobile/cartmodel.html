@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE - Shopping Bag</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#626262",
+                    "surface-dim": "#dadada",
+                    "on-primary-container": "#848484",
+                    "secondary-fixed": "#e4e2e2",
+                    "surface-container": "#eeeeee",
+                    "on-surface-variant": "#4c4546",
+                    "tertiary-fixed": "#e2e2e4",
+                    "surface": "#f9f9f9",
+                    "secondary-fixed-dim": "#c7c6c6",
+                    "surface-tint": "#5e5e5e",
+                    "surface-bright": "#f9f9f9",
+                    "background": "#f9f9f9",
+                    "on-primary-fixed-variant": "#474747",
+                    "tertiary-fixed-dim": "#c6c6c8",
+                    "primary": "#000000",
+                    "on-tertiary-fixed-variant": "#454749",
+                    "outline-variant": "#cfc4c5",
+                    "on-surface": "#1a1c1c",
+                    "inverse-primary": "#c6c6c6",
+                    "on-secondary-fixed-variant": "#464747",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#f3f3f4",
+                    "on-primary-fixed": "#1b1b1b",
+                    "inverse-on-surface": "#f0f1f1",
+                    "secondary-container": "#e1dfdf",
+                    "on-tertiary": "#ffffff",
+                    "secondary": "#5e5e5e",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2f3131",
+                    "on-tertiary-container": "#838486",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-error": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-container": "#1b1b1b",
+                    "outline": "#7e7576",
+                    "primary-fixed": "#e2e2e2",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "tertiary": "#000000",
+                    "on-tertiary-fixed": "#1a1c1d",
+                    "surface-container-high": "#e8e8e8",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-background": "#1a1c1c",
+                    "tertiary-container": "#1a1c1d",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "gutter": "16px",
+                    "aspect-ratio": "4:5"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "display-lg-mobile": [
+                            "Inter"
+                    ],
+                    "label-sm": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "36px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        /* Custom slide-in animation for the drawer */
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .animate-slide-in {
+            animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Hide scrollbar for cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-low text-primary antialiased h-screen overflow-hidden">
+<!-- Mock Background Content to give context to the overlay -->
+<div class="w-full h-full p-margin-mobile flex flex-col items-center justify-center opacity-30">
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-secondary">LUXE</h1>
+<p class="font-body-md text-body-md text-secondary mt-4">Discover the Collection</p>
+</div>
+<!-- Cart Overlay & Drawer Container -->
+<div aria-labelledby="cart-title" aria-modal="true" class="fixed inset-0 z-50 flex justify-end" role="dialog">
+<!-- Glassmorphism Backdrop -->
+<div class="absolute inset-0 bg-background/80 backdrop-blur-md transition-opacity duration-300"></div>
+<!-- Sliding Drawer -->
+<div class="relative w-full max-w-[90%] md:max-w-md h-full bg-background flex flex-col border-l border-surface-container animate-slide-in shadow-2xl">
+<!-- Header -->
+<header class="flex items-center justify-between px-margin-mobile py-6 border-b border-surface-container shrink-0">
+<h2 class="font-headline-md text-headline-md text-primary tracking-tight" id="cart-title">Shopping Bag (2)</h2>
+<button aria-label="Close cart" class="p-2 -mr-2 text-secondary hover:text-primary transition-colors flex items-center justify-center rounded-full hover:bg-surface-container">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</header>
+<!-- Scrollable Items Area -->
+<main class="flex-1 overflow-y-auto no-scrollbar p-margin-mobile flex flex-col gap-8">
+<!-- Cart Item 1 -->
+<div class="flex gap-4 group">
+<!-- Product Image container enforcing 4:5 aspect ratio -->
+<div class="w-28 shrink-0 aspect-[4/5] bg-surface-container rounded-DEFAULT overflow-hidden">
+<img alt="Structured Wool Blazer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A high-end editorial fashion photograph of a structured black wool blazer. The garment is displayed immaculately against a pristine, soft white background, creating a bright, modern light-mode aesthetic. The studio lighting highlights the premium texture and precise tailoring of the dark fabric. The overall mood is sophisticated, perfectly aligning with a strict minimalist and monochromatic design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3Fb6E_hO77wJBzQ78_ws8haV9UofpAn85jnlMUXEQEbeS6Fj6aSe_7K850tKZf164NwvmYV2QHdK8ncqB0oEfyg-h23K2QHkbOa3yIa26xIVV_FJXAobNm7I-TgdfkwCbqGJT3mn30plld7KUXs7GrPIkvKL6VFkGTrsOKhaM3I563mDWUqvsxHSjhFn9xfRnGeHCHph-2ghBWG3eHb2XLybG6-N8dC5WFaoQfQBEqXqKs1qrVoCP0N1SeG7HaYC4yHdh2J6wZiw"/>
+</div>
+<!-- Item Details -->
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-body-md text-body-md font-medium text-primary leading-tight">Structured Wool Blazer</h3>
+<span class="font-body-md text-body-md text-primary shrink-0">$495</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mt-2">Color: Noir</p>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Size: 38</p>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between mt-4">
+<!-- Minimalist Quantity Selector -->
+<div class="flex items-center border border-surface-container rounded-DEFAULT bg-surface">
+<button aria-label="Decrease quantity" class="w-8 h-8 flex items-center justify-center text-secondary hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-sm text-label-sm text-primary">1</span>
+<button aria-label="Increase quantity" class="w-8 h-8 flex items-center justify-center text-secondary hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<!-- Ghost Remove Button -->
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary underline underline-offset-4 decoration-surface-container hover:decoration-primary transition-all">
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="flex gap-4 group">
+<div class="w-28 shrink-0 aspect-[4/5] bg-surface-container rounded-DEFAULT overflow-hidden">
+<img alt="Pleated Silk Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A striking minimalist product shot of elegant pleated silk trousers in a deep, almost black tone. They are neatly arranged on a clean, slightly reflective surface against a perfectly white backdrop. The high-key, soft lighting accentuates the fluid drape and luxurious sheen of the silk material. The scene exudes effortless elegance, maintaining a focus on negative space and monochromatic clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGpgXCmT3bwbdRcc_oKj6cTB-h8a3JHXznRSqGl8yEfL2gzrX5PM5ubw5YghPizyp2MP0PEILpAGRrhDaF7ABjYD0DgkxBFV4mtEuIDeiG9S_ubSMYoEzxIJgPOtUBwLqA-Zmhm-BvfeaWeUbj975k-cEjUS3TXHDX5cKBW3KWkNJOoaq9u3C7wokoiFEmPEJyZFAYTteQ5ZN91G1hMBvESJom3KIPy_u1corhBsfL2GHuKqFnYKflNGGuJ-ln9VlsH3gxEAm3tFE"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start gap-2">
+<h3 class="font-body-md text-body-md font-medium text-primary leading-tight">Pleated Silk Trousers</h3>
+<span class="font-body-md text-body-md text-primary shrink-0">$350</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary mt-2">Color: Ash</p>
+<p class="font-label-sm text-label-sm text-secondary mt-1">Size: 36</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center border border-surface-container rounded-DEFAULT bg-surface">
+<button aria-label="Decrease quantity" class="w-8 h-8 flex items-center justify-center text-secondary hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="w-6 text-center font-label-sm text-label-sm text-primary">1</span>
+<button aria-label="Increase quantity" class="w-8 h-8 flex items-center justify-center text-secondary hover:text-primary transition-colors active:scale-95">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary underline underline-offset-4 decoration-surface-container hover:decoration-primary transition-all">
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer / Checkout Section -->
+<footer class="border-t border-surface-container bg-background p-margin-mobile shrink-0 pb-10">
+<div class="flex flex-col gap-1 mb-6">
+<div class="flex justify-between items-baseline">
+<span class="font-body-md text-body-md text-secondary">Subtotal</span>
+<span class="font-headline-md text-headline-md text-primary">$845</span>
+</div>
+<p class="font-label-sm text-label-sm text-secondary">Taxes and shipping calculated at checkout.</p>
+</div>
+<!-- Primary Solid Button -->
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-on-surface transition-colors scale-100 active:scale-98 duration-200">
+<span>Continue to Checkout</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</footer>
+</div>
+</div>
+</body></html>

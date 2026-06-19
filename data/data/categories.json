@@ -1,0 +1,8 @@
+[
+  { "id": "all", "name": "All" },
+  { "id": "new-in", "name": "New In" },
+  { "id": "ready-to-wear", "name": "Ready to Wear" },
+  { "id": "outerwear", "name": "Outerwear" },
+  { "id": "footwear", "name": "Footwear" },
+  { "id": "accessories", "name": "Accessories" }
+]

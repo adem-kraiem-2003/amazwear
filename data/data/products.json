@@ -1,0 +1,207 @@
+[
+  {
+    "id": "coat-1",
+    "name": "Structured Wool Coat",
+    "price": 450,
+    "originalPrice": 550,
+    "currency": "\u20ac",
+    "description": "Tailored from premium Italian wool blend, this structured coat features sharp shoulders, an oversized fit, and tonal button closures. Designed to transcend seasons with minimalist elegance.",
+    "details": ["70% Wool, 30% Recycled Polyester", "Notched lapels", "Double-breasted fastening", "Dry clean only"],
+    "category": "ready-to-wear",
+    "isNew": true,
+    "colors": [
+      { "name": "Onyx", "hex": "#000000" },
+      { "name": "Bone", "hex": "#E5E0D8" }
+    ],
+    "sizes": ["XS", "S", "M", "L"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB3y54VqJ1eSrR3HdlTxQ4x13xs-dLguMfsyChYue6SPp1xnFEprfnBZOHwKxweH2XUJjfmz21lLLG7QHkog-HGjUhuiDgD2v5WLAS1whmjYh2jWx7jskqvGwZB-orizVLnDxg4vjEcPT3KiEKZet7UYIxdj1GcjYV2uQbBj9qBXgHzmSIh1sZNKPvthqZJl9alywYRnfpWXxVueVZnkPzVMgFxCGgO8e8ZJa3XR8Ga-WuVtNvVHZ0eGb9sOWpAP1tDetKJUKnN6jc"
+    ]
+  },
+  {
+    "id": "bag-1",
+    "name": "Minimalist Leather Tote",
+    "price": 280,
+    "originalPrice": null,
+    "currency": "\u20ac",
+    "description": "A sleek, minimalist leather handbag crafted from premium full-grain leather.",
+    "details": ["100% Full-Grain Leather", "Gold-toned hardware", "Removable shoulder strap", "Interior zip pocket"],
+    "category": "accessories",
+    "isNew": false,
+    "colors": [{ "name": "Onyx", "hex": "#000000" }],
+    "sizes": [],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB7zHrFhVHCmrHv_yar1j3P8ekA4xrchdWo4Nk3notLNKfkHJGpGD4dYyNQPtXR41qeGsiXWHObapvkftBfz7lV-53dgqg_ob39BavsDy-AXkSV2Ym2F_b1mzrJ0OLCpUyvBQg6I4CBsAm-0no9CGBLxEsqxoJTbtoOcDQUa6zG9K8QPIV7F0Rg-7IIYg8O5ofBqotYXLEMnkdIxAkhu6uGq6ndWkaLUX042ndUCqxPcNwFEHdkRl9QsVXTO4e4pcPTO2oFge2ce_c"
+    ]
+  },
+  {
+    "id": "blazer-1",
+    "name": "Structured Wool Blazer",
+    "price": 450,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "A masterclass in modern tailoring. This structured blazer is crafted from premium, responsibly sourced wool with precise architectural lines. Features padded shoulders, a sharp peak lapel, and subtle darting for a refined silhouette.",
+    "details": ["70% Wool, 30% Recycled Polyester", "Notched lapels", "Double-breasted fastening", "Dry clean only"],
+    "category": "ready-to-wear",
+    "isNew": false,
+    "colors": [
+      { "name": "Onyx", "hex": "#1a1c1c" },
+      { "name": "Bone", "hex": "#e1dfdf" },
+      { "name": "Charcoal", "hex": "#4c4546" }
+    ],
+    "sizes": ["XS", "S", "M", "L"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBHDbPcGRtCUtaES7zpsffORF1ESVjS_hDhuJQBC6JrCeRb3CTrTyO2pe7-8MpGyJm39CWRRcLyvi8fZ9BNY4BsPNXpZU5uxFuv0hAr3xITu63jwYKCfNyW3rUpgFTu_ZPbQhTv7mL0PvNMHAIZzGySfpUPI04G_L6D9PTsijaB7lQzkaPpVP2b7uNGOrqUcYe4bvD-zvyAFlGXp6DUiAmxwI7i6GMQ8nfYYlPyK4zEbAj2aLMEm-SNUfTD15ZrzAOMZT9ZOncSiWc",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBVqIXi1jdtYfVcj4GQD7FD7qFxLDnXfOwmBGZKQjAcmacD6sQ56crbHtWCyvLOskuFGVN_hmKgbxEX5D46p_ZWQWu59fKRgvzlO5CE77FN7SErbPqJlgEFg0EbYBTGJJ71rC2ZCdXf6JEeVh580tBPkMachDXlehW3DHpLGDVBsjU0SfFumHWgItkQ9ILhssm3EmuEDCD_EZ7Lwc4vMXDE6Ni_nx197IlufbKbgipf8pwdcOY-S3DBMvQ9DZ7ByYfJob_EXvf8YSU",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAUn2jWiHf56qxVCxUiBzLTRolIFQnXpNyoqxUUiVhBx9R5f8OI7xInvoF31kAoeiKUMQDrr5yKU9pd_4CeEo8RFVEGCJaO3b1d9aoBJ-PFxSJYlHsA5v3DrtUhtVl9twcvwpQanigoOSviu-uG0-PCxqJuPdKuPeNlt0Q4XsgDmp3pjamk_ZDcTJThDjLJ81WaSp2pN9konLt0tTUP9f-htzu1brCkNGTO-E0FAhZn2cLwcwNIo1Fri1yxM6QnvO9My9W4RfqiOvc"
+    ],
+    "relatedIds": ["trousers-1", "camisole-1", "loafer-1", "hoop-1"]
+  },
+  {
+    "id": "trench-1",
+    "name": "Oversized Trench Coat",
+    "price": 1100,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "An oversized take on the classic trench coat. Crafted from water-resistant cotton gabardine.",
+    "details": ["100% Cotton Gabardine", "Water-resistant finish", "Oversized fit", "Made in Italy"],
+    "category": "outerwear",
+    "isNew": false,
+    "colors": [{ "name": "Onyx", "hex": "#000000" }],
+    "sizes": ["XS", "S", "M", "L"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAiNILSoY9vWUw-tx99B2zMSPl8jNyIwvFo7FTvjfVJYDmtX6HlZfQ3wT3ypHuiYm3JiOs-63BC7hR9ES6Aks7Pb7bYB4VejYbYebX-XN_qP3r5PYAlWkHip5rg40234ob1bRzDoPzATrNMfDFDOIENdCGoAsz-dfX5caVjRrocWi6yNePK2mxZtIp2xTrjFWq-6qf0rOJofAp_yPLT1f1L1qiFZf30Uxu-VTjxqJKLk8xVEPEjxMihLcgFy4KavllV6FhsAtUfe9E"
+    ]
+  },
+  {
+    "id": "boots-1",
+    "name": "Leather Ankle Boots",
+    "price": 680,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "Minimalist ankle boots crafted from calfskin leather with pointed toe and sculptural block heel.",
+    "details": ["Calfskin Leather", "Leather sole", "Block heel 60mm", "Side zip closure"],
+    "category": "footwear",
+    "isNew": false,
+    "colors": [{ "name": "Onyx", "hex": "#000000" }],
+    "sizes": ["36", "37", "38", "39", "40"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBdgNuVvbS4n7TL9v5ZR_WMuivKb4kXEP6frWIV7w7PQVVvblYmyTBcux_Fvxna2KNSLsGkVMHfno0Qqj8mTTY8-bNp2GhLfmBHCv9nYhpvlM2kOXBspXSqENc1z-57b-EXEcUxgRlAVz3xVamk91hjT1forrYg763Lsu6hap39eMQLPMWCVVXFUyKlDR3Lfn1y1bdFs1F0Itc9-tGmIQbMBMKEIoN3tjrEr8pmZMPzGyKHVWGEFqOVaj7-iP9OvLpzKpJ8vutF9J0"
+    ]
+  },
+  {
+    "id": "cup-1",
+    "name": "Luxe Ceramic Cup",
+    "price": 45,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "A minimalist matte black ceramic cup with clean geometric lines.",
+    "details": ["High-fired ceramic", "Matte black glaze", "Dishwasher safe", "350ml capacity"],
+    "category": "home",
+    "isNew": false,
+    "colors": [{ "name": "Matte Black", "hex": "#000000" }],
+    "sizes": ["Standard"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBbzt_t31ar2DL_dKoRe9Ow280OKV1NdBYv6dhrFCB67OKGkS_jhDg5ZoxfmnKq7r91y3US-8qmULBGOZR7-NpS9xi6TKnpG-9A4hKdgCnoAxdYG2ta1Nk-lYcrFrqg-QzZRpeSDuEZy0lfvojWkb6vGRdWBKXQWFuNOWiw42_7ZVNI4nXsxZGAuFbI4NwhBupUY-LrkXXttjdBSrYVFwNCv1qcn0YRK_xq4wOQ3DjSLeLPLEqBaCDk1KuHW1YfsmzEQFZ432hyBqA"
+    ]
+  },
+  {
+    "id": "shirt-1",
+    "name": "Oversized Linen Shirt",
+    "price": 145,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "An oversized linen shirt in a soft bone color with relaxed silhouette.",
+    "details": ["100% Pure Linen", "Relaxed fit", "Mother-of-pearl buttons", "Machine washable"],
+    "category": "ready-to-wear",
+    "isNew": false,
+    "colors": [
+      { "name": "Bone", "hex": "#e1dfdf" },
+      { "name": "Onyx", "hex": "#000000" }
+    ],
+    "sizes": ["XS", "S", "M", "L"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCcUFOqp3M_FtnAYvxWV8gA0TIv1XNKjvftQgwJyZB_-k3sw4vh6cMdHpBedJXasxMCKSZSKi45gjRC9uhnIYAW-DM9Ik_pkUC4HK1QPe1mjnflIIKjZHmwy6G5cYTwr1QVHH4d34S9ig-0IZRXfAIjb8RWgh-40ilffZ95RdGk_twnTrQJADCZdz6zWwk7Al-Sy2xnip5cGK_GwDgU4g7RSCKewJ6qBQA9jN6fKtHAONSm1WqUGqpilZl6ztCiCdmmYu9CSu7m2n0"
+    ]
+  },
+  {
+    "id": "trousers-1",
+    "name": "Tailored Trousers",
+    "price": 280,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "Wide-leg tailored trousers with a crisp crease, crafted from premium wool blend.",
+    "details": ["70% Wool, 30% Recycled Polyester", "Wide-leg fit", "Side pockets", "Dry clean only"],
+    "category": "ready-to-wear",
+    "isNew": false,
+    "colors": [{ "name": "Onyx", "hex": "#000000" }],
+    "sizes": ["XS", "S", "M", "L"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDeQaQS5QzDIwrOelYyepMjtUd8BZy7a70mx_qYE7PP_bOk9N9SE1FVYtMlucGkIF_JC-CgJAYEf7C_buAsqzFeq6wHUBFd9hHGym2Zwytqfljg3FfydeMVI4dEcgAbGA4OahtyyLvyJ_zwQTAEZOojati14OSoXf9_ENkoz3TJqcpftXQSTwTGMR8JJgjT32816N7j9ERpgA9MwI2mwuAlszMVppA2bFkm4R5DUehhUXfvfNnjyU7x4Z07PiKU1sGJAJFsNGDJdx4"
+    ]
+  },
+  {
+    "id": "camisole-1",
+    "name": "Silk Camisole",
+    "price": 150,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "A delicate silk camisole in muted bone with adjustable straps and satin finish.",
+    "details": ["100% Mulberry Silk", "Adjustable straps", "Satin finish", "Dry clean only"],
+    "category": "ready-to-wear",
+    "isNew": false,
+    "colors": [{ "name": "Bone", "hex": "#e1dfdf" }],
+    "sizes": ["XS", "S", "M", "L"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBdcvS9U_BUlD3FXnRx792R_hxdme2Xx14HB4lTtqvkTTmhGrCmhab40nrUgfgYokvMa2xuG3L6nhRHslw1G0SzMEACFRgYekR9WDDDfa2qH26FvCCFDaZOtID8K8bgTPWF0VWRk73PVGeB00sbdMRJbMj07n6sp_Jzs4M7JW5oYeytY0HrfYJSneQKfGp8bw4M6RBFXckjGSfNJMaCWbO8HhUEm59lE7NZG4wwvMh4jwiwImKF3-xj48ozvPOv2Kyb4rvxf-fNl_c"
+    ]
+  },
+  {
+    "id": "loafer-1",
+    "name": "Minimal Leather Loafer",
+    "price": 320,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "Minimalist black leather loafers with sleek silhouette and premium calfskin.",
+    "details": ["Calfskin Leather", "Leather sole", "Hand-stitched details", "Made in Portugal"],
+    "category": "footwear",
+    "isNew": false,
+    "colors": [{ "name": "Onyx", "hex": "#000000" }],
+    "sizes": ["36", "37", "38", "39", "40"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAaXJUZHLICctFhKPCBVLrvwPCf4NX3XaK-IrQrZtewTrxlYr5rCiZa3kWgpOSqvY-BmowGCVhN5F72OKGe2pdYWAP4a3LXfahnA6XY4c5JSYmwHZU2Plfwx2rZT8frssoNmxdtobnxwVvaFZkdRv0wfMVmrVZf1O2BF1pqTm6ubZgfgaCeTf-px0qonPOU_l-KpbOsU7mJLk-BkU3c4whcA90g49WxnaXAY9egV0PuaBKVPKPhjldQi5lZPLzBq4Vfsn7_0XEbAeo"
+    ]
+  },
+  {
+    "id": "hoop-1",
+    "name": "Sculptural Hoop",
+    "price": 195,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "Thick sculptural gold hoop earrings with polished finish.",
+    "details": ["18K Gold Plated", "Hypoallergenic", "Lever-back closure", "Weight: 12g each"],
+    "category": "accessories",
+    "isNew": false,
+    "colors": [{ "name": "Gold", "hex": "#C9A84C" }],
+    "sizes": ["One Size"],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBkM7Zsvu_Y4GGT-Hbo5cLSkTaahPw6KpxqkBAo6BytC0gVcc1nj-RV6bfancXmXMUHjS5nkTySnefHoRwdnzcLgYrxTJBV8UVQkaS_NyIXxtCEYG5OIigZjoiQc2S9-LB8jd5s84zqyTVhkN0mQOCxlvSORWaGpX8KLdQKF4VYdSAC7LS4Yg9HK1627vKslrnKQ7pF9qrY5vRYSwO_sGNuTAd86Kd0ew_ASvG_yqYtNCv4Lp_nViPDAws8AWSmO80nbyVz-WMCb1o"
+    ]
+  },
+  {
+    "id": "tote-1",
+    "name": "Mini Structured Tote",
+    "price": 320,
+    "originalPrice": null,
+    "currency": "$",
+    "description": "A sleek, structured mini tote in matte black leather with minimal hardware.",
+    "details": ["Full-Grain Leather", "Gold-toned hardware", "Removable strap", "Interior pocket"],
+    "category": "accessories",
+    "isNew": false,
+    "colors": [{ "name": "Onyx", "hex": "#000000" }],
+    "sizes": [],
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBy0zO-Ymg8xTdO_o3wuCn0pZtuFg2GX9EE0NXW0cohvpicdHzsMAKyB8AmX8G2NS8xAO824eCeux6QHIFy0z_MIVMBMrByaUAdNEbnQ0U0L95lr9fN6Ifxw5so4I0Odap7-5fayDPGErjGmUFRjlCO-dFS8R6O5oz0FYRDqTXUVeX-exOkBCWeW_H0_FgJRGAuRdB4y9JglNEjHHDNNhnZZ1DSqF2edRH09ojtyPfBnEEQHKDcgje3wemNNYTVcKCOCKdRgq1uN24"
+    ]
+  }
+]

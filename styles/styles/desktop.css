@@ -1,0 +1,39 @@
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input[type="radio"]:checked + label.color-swatch {
+  border-color: #000000;
+  padding: 2px;
+}
+
+input[type="radio"]:checked + label.size-swatch {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.success-check {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheck 0.6s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+.success-circle {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: drawCircle 0.8s ease-out forwards;
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}

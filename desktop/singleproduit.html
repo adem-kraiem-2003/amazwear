@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE - Structured Wool Blazer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#1b1b1b",
+                      "on-primary-container": "#848484",
+                      "inverse-on-surface": "#f0f1f1",
+                      "background": "#f9f9f9",
+                      "on-secondary-container": "#626262",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface-tint": "#5e5e5e",
+                      "tertiary": "#000000",
+                      "primary": "#000000",
+                      "tertiary-fixed-dim": "#c6c6c8",
+                      "secondary-container": "#e1dfdf",
+                      "on-tertiary-fixed": "#1a1c1d",
+                      "secondary": "#5e5e5e",
+                      "on-tertiary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-fixed-variant": "#464747",
+                      "on-tertiary-container": "#838486",
+                      "on-background": "#1a1c1c",
+                      "inverse-surface": "#2f3131",
+                      "secondary-fixed": "#e4e2e2",
+                      "surface-variant": "#e2e2e2",
+                      "surface-bright": "#f9f9f9",
+                      "primary-fixed-dim": "#c6c6c6",
+                      "tertiary-container": "#1a1c1d",
+                      "outline": "#7e7576",
+                      "on-primary-fixed": "#1b1b1b",
+                      "surface-container-low": "#f3f3f4",
+                      "tertiary-fixed": "#e2e2e4",
+                      "surface-dim": "#dadada",
+                      "outline-variant": "#cfc4c5",
+                      "surface": "#f9f9f9",
+                      "secondary-fixed-dim": "#c7c6c6",
+                      "on-surface": "#1a1c1c",
+                      "on-surface-variant": "#4c4546",
+                      "surface-container-high": "#e8e8e8",
+                      "on-tertiary-fixed-variant": "#454749",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#c6c6c6",
+                      "surface-container": "#eeeeee",
+                      "primary-fixed": "#e2e2e2",
+                      "on-primary-fixed-variant": "#474747",
+                      "error-container": "#ffdad6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "unit": "8px",
+                      "aspect-ratio": "4:5",
+                      "margin-mobile": "20px",
+                      "margin-desktop": "64px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        body {
+            background-color: #ffffff;
+            color: #1a1c1c;
+        }
+        .aspect-4-5 {
+            aspect-ratio: 4 / 5;
+        }
+        
+        /* Product gallery scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Selection visual feedback */
+        input[type="radio"]:checked + label.color-swatch {
+            border-color: #000000;
+            padding: 2px;
+        }
+        input[type="radio"]:checked + label.size-swatch {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+      </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto bg-surface dark:bg-surface">
+<!-- Left Navigation Links -->
+<nav class="flex items-center space-x-8">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary dark:text-on-secondary-container pb-1 hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">New In</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-primary dark:text-on-surface border-b border-primary pb-1 hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Ready to Wear</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-secondary dark:text-on-secondary-container pb-1 hover:text-primary dark:hover:text-on-surface transition-colors duration-200" href="#">Search</a>
+</nav>
+<!-- Brand Logo -->
+<div class="absolute left-1/2 transform -translate-x-1/2">
+<a class="font-display-lg text-display-lg font-bold tracking-tighter text-primary dark:text-on-surface" href="#">LUXE</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex items-center space-x-6">
+<button aria-label="Shopping Bag" class="text-primary dark:text-on-surface hover:text-primary dark:hover:text-on-surface transition-colors duration-200 scale-98 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1280px] mx-auto px-margin-desktop py-12">
+<!-- Split View Product Area -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Left: Product Image Gallery (7 cols) -->
+<div class="col-span-12 md:col-span-7 flex gap-4 h-[819px]">
+<!-- Thumbnail Strip -->
+<div class="hidden md:flex flex-col gap-4 overflow-y-auto no-scrollbar w-24 flex-shrink-0">
+<button class="w-full aspect-4-5 relative border border-transparent hover:border-outline transition-colors group">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="A close-up studio shot of a high-end structured wool blazer in black. The lighting is crisp and even, highlighting the premium texture of the wool fabric against a stark white background. The aesthetic is clean, minimalist, and luxury fashion editorial. The focus is on the lapel and shoulder construction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxqbsyTG0j7sjcGeVPu1k_AqL04x2ymMQFuU4kzDIAce28JJ9sFHTCJI66DnIafkhd6OHdhClRe1HUorAo1i3WBZkKLHBNz83n1iGbzuS1Hbw9G45P5Ud0nnUrEoWur2Lks9UFtxWRjMhFxMmx-V2WyDSHg-jwj5SDF_Oz65coJxh8gQWLHY1F2YmNF5fpQNCLOMqucjNBddxVvsGRZBbMzUAYUl94ax3qgmQjrcYOl-JFeOk38d0eFvLhsQbgoulZy4FvRtswMC4"/>
+<div class="absolute inset-0 bg-surface/10 group-hover:bg-transparent transition-colors"></div>
+</button>
+<button class="w-full aspect-4-5 relative border border-transparent hover:border-outline transition-colors group">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" data-alt="A detailed side view studio shot of a high-end structured wool blazer in black on a mannequin. The crisp, minimal lighting emphasizes the garment's precise tailoring and drape. The background is a pure, bright white, maintaining the brand's quiet, premium luxury aesthetic. Focus is on the sleeve and waist structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mux4pNQiyzQsPNymMF0YCESU6YALg6SCfCriK4r_a6wlOKvEi9BKVBWFt9QNJu3E908vg7eSgNt0usC7UVQfty7abXJbRMMyBnMdy4vsI-cxmBzHe8eM7nSHtVPxVE8qudqoz0b8YpomY_RVzcKSswW9Z51rPHGh5QzfVRMEkCFd0fgveHrJaNifnhSFyP4BbkFGx-PIMRCG9ue_PBieEbAtWovqiHR76QuP_WvWHml2FmuDkbLJndly6UklfZ6OdanfOmsmPQo"/>
+<div class="absolute inset-0 bg-surface/10 group-hover:bg-transparent transition-colors"></div>
+</button>
+<button class="w-full aspect-4-5 relative border border-transparent hover:border-outline transition-colors group">
+<img alt="Thumbnail 3" class="w-full h-full object-cover" data-alt="A close-up macro shot focusing on the button details and fabric weave of a premium black structured wool blazer. The studio lighting is soft yet directional, bringing out the luxurious texture of the material against a pristine white setting. The composition is tight and minimalist, typical of high-end editorial fashion photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_cC1GoIuSGFE797wQQfgoL8ZbzF21wp95j5tjRXxdCS_d6tIv2Y8n9EsK1yxbXctsi6KMyHzC7Sjalnng8G9GOE1-LH4tmrQjTesGIl4p10YvowRIlgXN07jtozgs8bbFAHf5la-rOuM6WIyT1qmHfwh2tScWdLDXXxsIrBGDbDqpjISLbvqRIxB6OjBzijZyOwCmiazm2oQANpDCHq1MaJlBBnyFS9ZwQ4Z0jnc1MaDWrRd4nSEW5zeP3NGiBI30aWRG7C5ddc"/>
+<div class="absolute inset-0 bg-surface/10 group-hover:bg-transparent transition-colors"></div>
+</button>
+</div>
+<!-- Main Image Area -->
+<div class="flex-grow h-full relative bg-surface-container-low overflow-hidden">
+<img alt="Structured Wool Blazer Main" class="w-full h-full object-cover" data-alt="A full-length front-facing studio shot of a model wearing a sophisticated, tailored black structured wool blazer. The model is positioned centrally against a bright, expansive white background. The lighting is bright and high-key, creating an atmosphere of effortless sophistication and high-end minimalism. The focus is clearly on the silhouette and fit of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUn2jWiHf56qxVCxUiBzLTRolIFQnXpNyoqxUUiVhBx9R5f8OI7xInvoF31kAoeiKUMQDrr5yKU9pd_4CeEo8RFVEGCJaO3b1d9aoBJ-PFxSJYlHsA5v3DrtUhtVl9twcvwpQanigoOSviu-uG0-PCxqJuPdKuPeNlt0Q4XsgDmp3pjamk_ZDcTJThDjLJ81WaSp2pN9konLt0tTUP9f-htzu1brCkNGTO-E0FAhZn2cLwcwNIo1Fri1yxM6QnvO9My9W4RfqiOvc"/>
+</div>
+</div>
+<!-- Right: Sticky Commerce Column (5 cols) -->
+<div class="col-span-12 md:col-span-5 md:pl-12 lg:pl-16 relative">
+<div class="sticky top-32 flex flex-col pt-8 md:pt-0">
+<!-- Title & Price -->
+<div class="mb-8">
+<h1 class="font-headline-md text-headline-md text-primary mb-2">Structured Wool Blazer</h1>
+<p class="font-body-lg text-body-lg text-secondary">$450.00</p>
+</div>
+<!-- Color Selection -->
+<div class="mb-8">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-primary mb-4">Color: <span class="text-secondary ml-1" id="selected-color-label">Onyx</span></h2>
+<div class="flex gap-3">
+<div class="relative">
+<input checked="" class="peer sr-only" id="color-onyx" name="color" onchange="document.getElementById('selected-color-label').innerText = this.value" type="radio" value="Onyx"/>
+<label class="color-swatch block w-8 h-8 rounded-full cursor-pointer border border-transparent transition-all hover:scale-110 flex items-center justify-center p-0.5" for="color-onyx" style="border-color: #000000;">
+<span class="block w-full h-full rounded-full bg-[#1a1c1c]"></span>
+</label>
+</div>
+<div class="relative">
+<input class="peer sr-only" id="color-bone" name="color" onchange="document.getElementById('selected-color-label').innerText = this.value" type="radio" value="Bone"/>
+<label class="color-swatch block w-8 h-8 rounded-full cursor-pointer border border-outline-variant transition-all hover:scale-110 flex items-center justify-center p-0.5" for="color-bone">
+<span class="block w-full h-full rounded-full bg-[#e1dfdf]"></span>
+</label>
+</div>
+<div class="relative">
+<input class="peer sr-only" id="color-charcoal" name="color" onchange="document.getElementById('selected-color-label').innerText = this.value" type="radio" value="Charcoal"/>
+<label class="color-swatch block w-8 h-8 rounded-full cursor-pointer border border-transparent transition-all hover:scale-110 flex items-center justify-center p-0.5" for="color-charcoal">
+<span class="block w-full h-full rounded-full bg-[#4c4546]"></span>
+</label>
+</div>
+</div>
+</div>
+<!-- Size Selection -->
+<div class="mb-10">
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Size</h2>
+<button class="font-label-sm text-label-sm text-secondary hover:text-primary underline decoration-1 underline-offset-4 transition-colors">Size Guide</button>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<div>
+<input class="peer sr-only" id="size-xs" name="size" type="radio"/>
+<label class="size-swatch block w-full py-3 text-center border border-outline-variant font-body-md text-body-md text-primary cursor-pointer hover:border-primary transition-colors" for="size-xs">XS</label>
+</div>
+<div>
+<input class="peer sr-only" id="size-s" name="size" type="radio"/>
+<label class="size-swatch block w-full py-3 text-center border border-outline-variant font-body-md text-body-md text-primary cursor-pointer hover:border-primary transition-colors" for="size-s">S</label>
+</div>
+<div>
+<input checked="" class="peer sr-only" id="size-m" name="size" type="radio"/>
+<label class="size-swatch block w-full py-3 text-center border border-primary bg-primary text-on-primary font-body-md text-body-md cursor-pointer hover:border-primary transition-colors" for="size-m">M</label>
+</div>
+<div>
+<input class="peer sr-only" id="size-l" name="size" type="radio"/>
+<label class="size-swatch block w-full py-3 text-center border border-outline-variant font-body-md text-body-md text-primary cursor-pointer hover:border-primary transition-colors" for="size-l">L</label>
+</div>
+</div>
+</div>
+<!-- Add to Cart Action -->
+<button class="w-full bg-primary text-on-primary py-4 font-label-sm text-label-sm uppercase tracking-widest rounded transition-transform active:scale-98 hover:opacity-90 flex justify-center items-center gap-2 mb-8">
+                        Add to Cart
+                    </button>
+<!-- Details Accordion (Simplified) -->
+<div class="border-t border-outline-variant py-4">
+<button class="w-full flex justify-between items-center py-2 text-left group">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Description</span>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors" data-icon="add">add</span>
+</button>
+<div class="pt-2 pb-4 text-secondary font-body-md text-body-md">
+                            A masterclass in modern tailoring. This structured blazer is crafted from premium, responsibly sourced wool with precise architectural lines. Features padded shoulders, a sharp peak lapel, and subtle darting for a refined silhouette.
+                        </div>
+</div>
+<div class="border-t border-b border-outline-variant py-4">
+<button class="w-full flex justify-between items-center py-2 text-left group">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Shipping &amp; Returns</span>
+<span class="material-symbols-outlined text-secondary group-hover:text-primary transition-colors" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Complete The Look -->
+<section class="mt-32">
+<h2 class="font-headline-md text-headline-md text-primary mb-12 text-center">Complete The Look</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<a class="group block" href="#">
+<div class="aspect-4-5 bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Tailored Trousers" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A studio shot of tailored wool trousers in black, styled minimally. The lighting is stark and high-end, set against a pure white background. The image focuses on the crisp crease and drape of the fabric, embodying the high-end minimalist aesthetic of the luxury brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeQaQS5QzDIwrOelYyepMjtUd8BZy7a70mx_qYE7PP_bOk9N9SE1FVYtMlucGkIF_JC-CgJAYEf7C_buAsqzFeq6wHUBFd9hHGym2Zwytqfljg3FfydeMVI4dEcgAbGA4OahtyyLvyJ_zwQTAEZOojati14OSoXf9_ENkoz3TJqcpftXQSTwTGMR8JJgjT32816N7j9ERpgA9MwI2mwuAlszMVppA2bFkm4R5DUehhUXfvfNnjyU7x4Z07PiKU1sGJAJFsNGDJdx4"/>
+<button class="absolute bottom-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:hidden group-hover:md:flex shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="add">add</span>
+</button>
+</div>
+<h3 class="font-body-md text-body-md text-primary">Tailored Trousers</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">$280.00</p>
+</a>
+<!-- Product Card 2 -->
+<a class="group block" href="#">
+<div class="aspect-4-5 bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Silk Camisole" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A delicate silk camisole in a muted bone color, photographed in a high-end studio setting. The lighting is soft and ethereal, highlighting the sheen of the silk against a bright white backdrop. The composition is clean and minimalist, conveying a sense of quiet luxury and refinement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdcvS9U_BUlD3FXnRx792R_hxdme2Xx14HB4lTtqvkTTmhGrCmhab40nrUgfgYokvMa2xuG3L6nhRHslw1G0SzMEACFRgYekR9WDDDfa2qH26FvCCFDaZOtID8K8bgTPWF0VWRk73PVGeB00sbdMRJbMj07n6sp_Jzs4M7JW5oYeytY0HrfYJSneQKfGp8bw4M6RBFXckjGSfNJMaCWbO8HhUEm59lE7NZG4wwvMh4jwiwImKF3-xj48ozvPOv2Kyb4rvxf-fNl_c"/>
+<button class="absolute bottom-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:hidden group-hover:md:flex shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="add">add</span>
+</button>
+</div>
+<h3 class="font-body-md text-body-md text-primary">Silk Camisole</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">$150.00</p>
+</a>
+<!-- Product Card 3 -->
+<a class="group block" href="#">
+<div class="aspect-4-5 bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Minimal Leather Loafer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="A pair of minimalist black leather loafers, shot from a slightly elevated angle in a pristine studio environment. The light is carefully controlled to emphasize the smooth texture and structural shape of the shoes against a stark white surface. The image exudes premium quality and modern sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaXJUZHLICctFhKPCBVLrvwPCf4NX3XaK-IrQrZtewTrxlYr5rCiZa3kWgpOSqvY-BmowGCVhN5F72OKGe2pdYWAP4a3LXfahnA6XY4c5JSYmwHZU2Plfwx2rZT8frssoNmxdtobnxwVvaFZkdRv0wfMVmrVZf1O2BF1pqTm6ubZgfgaCeTf-px0qonPOU_l-KpbOsU7mJLk-BkU3c4whcA90g49WxnaXAY9egV0PuaBKVPKPhjldQi5lZPLzBq4Vfsn7_0XEbAeo"/>
+<button class="absolute bottom-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:hidden group-hover:md:flex shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="add">add</span>
+</button>
+</div>
+<h3 class="font-body-md text-body-md text-primary">Minimal Leather Loafer</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">$320.00</p>
+</a>
+<!-- Product Card 4 -->
+<a class="group block" href="#">
+<div class="aspect-4-5 bg-surface-container-low mb-4 overflow-hidden relative">
+<img alt="Sculptural Hoop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Close-up macro photography of a thick, sculptural gold hoop earring. The studio lighting creates sharp highlights and deep reflections on the polished metal surface, set against an expansive, bright white background. The aesthetic is extremely clean, focusing purely on form and luxury materials." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkM7Zsvu_Y4GGT-Hbo5cLSkTaahPw6KpxqkBAo6BytC0gVcc1nj-RV6bfancXmXMUHjS5nkTySnefHoRwdnzcLgYrxTJBV8UVQkaS_NyIXxtCEYG5OIigZjoiQc2S9-LB8jd5s84zqyTVhkN0mQOCxlvSORWaGpX8KLdQKF4VYdSAC7LS4Yg9HK1627vKslrnKQ7pF9qrY5vRYSwO_sGNuTAd86Kd0ew_ASvG_yqYtNCv4Lp_nViPDAws8AWSmO80nbyVz-WMCb1o"/>
+<button class="absolute bottom-4 right-4 w-10 h-10 bg-surface/80 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:hidden group-hover:md:flex shadow-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="add">add</span>
+</button>
+</div>
+<h3 class="font-body-md text-body-md text-primary">Sculptural Hoop</h3>
+<p class="font-body-md text-body-md text-secondary mt-1">$195.00</p>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface dark:bg-surface border-t border-outline-variant dark:border-outline mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-desktop py-12 max-w-[1440px] mx-auto border-t border-surface-variant">
+<!-- Links -->
+<nav class="flex space-x-6 mb-6 md:mb-0">
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:underline transition-all opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:underline transition-all opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:underline transition-all opacity-80 hover:opacity-100" href="#">Contact</a>
+</nav>
+<!-- Brand Logo -->
+<div class="mb-6 md:mb-0">
+<span class="font-display-lg text-display-lg font-bold text-primary">LUXE</span>
+</div>
+<!-- Copyright -->
+<div>
+<p class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container">© 2024 LUXE. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>

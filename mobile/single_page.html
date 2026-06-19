@@ -1,0 +1,286 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Product Detail - LUXE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e4e2e2",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#c6c6c6",
+                        "primary": "#000000",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2f3131",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "tertiary": "#000000",
+                        "tertiary-container": "#1a1c1d",
+                        "on-surface-variant": "#4c4546",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-primary-fixed-variant": "#474747",
+                        "primary-fixed": "#e2e2e2",
+                        "inverse-on-surface": "#f0f1f1",
+                        "secondary": "#5e5e5e",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "outline": "#7e7576",
+                        "primary-container": "#1b1b1b",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container": "#eeeeee",
+                        "surface-bright": "#f9f9f9",
+                        "on-secondary-container": "#626262",
+                        "surface-variant": "#e2e2e2",
+                        "secondary-container": "#e1dfdf",
+                        "on-tertiary-fixed-variant": "#454749",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f3f3f4",
+                        "on-tertiary-container": "#838486",
+                        "surface-container-high": "#e8e8e8",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c6c6c8",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e2e2e4",
+                        "on-primary-container": "#848484",
+                        "surface-tint": "#5e5e5e",
+                        "surface": "#f9f9f9",
+                        "on-primary-fixed": "#1b1b1b",
+                        "outline-variant": "#cfc4c5",
+                        "background": "#f9f9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "aspect-ratio": "4:5",
+                        "gutter": "16px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["36px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .shimmer {
+            background: linear-gradient(to right, #F2F2F2 4%, #E5E5E5 25%, #F2F2F2 36%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pb-24 md:hidden">
+<!-- TopAppBar Shell (Transaction/Detail view, so we suppress main nav, but keep a back button header) -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md flex justify-between items-center px-margin-mobile h-16 max-w-7xl mx-auto">
+<button class="text-primary hover:opacity-70 transition-opacity scale-98 active:scale-95 duration-200" onclick="history.back()">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back_ios</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tighter text-primary">LUXE</span>
+<button class="text-primary hover:opacity-70 transition-opacity scale-98 active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_bag" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow pt-16">
+<!-- Image Gallery (Skeleton Initial State) -->
+<section class="w-full relative aspect-[4/5] bg-surface-container-lowest" id="gallery-container">
+<!-- Skeleton Loader -->
+<div class="absolute inset-0 w-full h-full shimmer rounded-DEFAULT z-10" id="gallery-skeleton"></div>
+<!-- Actual Images (Hidden initially to simulate load) -->
+<div class="w-full h-full flex overflow-x-auto snap-x snap-mandatory hide-scrollbar opacity-0 transition-opacity duration-500" id="gallery-content">
+<div class="w-full flex-shrink-0 snap-center">
+<img alt="Fashion item" class="w-full h-full object-cover" data-alt="A high-end editorial fashion photograph of a minimalist, structured blazer in a neutral tone. The lighting is soft and diffused, characteristic of a premium studio setup, casting subtle, flattering shadows. The model is posed against a pristine white background, ensuring the focus remains entirely on the garment's tailoring and texture. The overall aesthetic is clean, modern, and sophisticated, aligning perfectly with a luxury light-mode digital environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHDbPcGRtCUtaES7zpsffORF1ESVjS_hDhuJQBC6JrCeRb3CTrTyO2pe7-8MpGyJm39CWRRcLyvi8fZ9BNY4BsPNXpZU5uxFuv0hAr3xITu63jwYKCfNyW3rUpgFTu_ZPbQhTv7mL0PvNMHAIZzGySfpUPI04G_L6D9PTsijaB7lQzkaPpVP2b7uNGOrqUcYe4bvD-zvyAFlGXp6DUiAmxwI7i6GMQ8nfYYlPyK4zEbAj2aLMEm-SNUfTD15ZrzAOMZT9ZOncSiWc">
+</div>
+<div class="w-full flex-shrink-0 snap-center">
+<img alt="Fashion item detail" class="w-full h-full object-cover" data-alt="A close-up, highly detailed shot of premium fabric texture from a tailored garment. The lighting is crisp and directional, highlighting the weave and material quality. The color palette is restricted to elegant monochromatic shades, adhering to a sophisticated minimalist design language. The image conveys luxury, precision, and tactile appeal, designed for a high-end e-commerce gallery view." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVqIXi1jdtYfVcj4GQD7FD7qFxLDnXfOwmBGZKQjAcmacD6sQ56crbHtWCyvLOskuFGVN_hmKgbxEX5D46p_ZWQWu59fKRgvzlO5CE77FN7SErbPqJlgEFg0EbYBTGJJ71rC2ZCdXf6JEeVh580tBPkMachDXlehW3DHpLGDVBsjU0SfFumHWgItkQ9ILhssm3EmuEDCD_EZ7Lwc4vMXDE6Ni_nx197IlufbKbgipf8pwdcOY-S3DBMvQ9DZ7ByYfJob_EXvf8YSU">
+</div>
+</div>
+<!-- Gallery Indicators -->
+<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-surface-variant"></div>
+</div>
+</section>
+<!-- Product Info -->
+<section class="px-margin-mobile py-6 flex flex-col gap-unit">
+<div class="flex justify-between items-start">
+<h1 class="font-headline-md text-headline-md text-primary">Structured Wool Blazer</h1>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite_border</span>
+</button>
+</div>
+<p class="font-body-lg text-body-lg text-secondary">$ 450.00</p>
+</section>
+<div class="w-full h-px bg-surface-container px-margin-mobile"></div>
+<!-- Options: Colors & Sizes -->
+<section class="px-margin-mobile py-6 flex flex-col gap-6">
+<!-- Colors -->
+<div class="flex flex-col gap-3">
+<span class="font-label-sm text-label-sm uppercase text-secondary">Color: <span class="text-primary ml-1" id="selected-color-name">Onyx</span></span>
+<div class="flex gap-4">
+<button aria-label="Onyx" class="w-8 h-8 rounded-full bg-primary ring-1 ring-offset-2 ring-primary transition-all" onclick="selectColor(this, 'Onyx')"></button>
+<button aria-label="Bone" class="w-8 h-8 rounded-full bg-[#f4f4f4] ring-1 ring-offset-2 ring-transparent hover:ring-outline-variant transition-all border border-surface-container" onclick="selectColor(this, 'Bone')"></button>
+<button aria-label="Charcoal" class="w-8 h-8 rounded-full bg-[#4a4a4a] ring-1 ring-offset-2 ring-transparent hover:ring-outline-variant transition-all" onclick="selectColor(this, 'Charcoal')"></button>
+</div>
+</div>
+<!-- Sizes -->
+<div class="flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<span class="font-label-sm text-label-sm uppercase text-secondary">Size</span>
+<a class="font-label-sm text-label-sm text-primary underline decoration-1 underline-offset-4" href="#">Size Guide</a>
+</div>
+<div class="grid grid-cols-4 gap-3">
+<button class="h-12 border border-surface-container text-secondary font-body-md hover:border-primary hover:text-primary rounded-DEFAULT transition-colors active:scale-98">XS</button>
+<button aria-current="true" class="h-12 border border-primary text-primary font-body-md bg-surface-container-lowest rounded-DEFAULT transition-colors active:scale-98">S</button>
+<button class="h-12 border border-surface-container text-secondary font-body-md hover:border-primary hover:text-primary rounded-DEFAULT transition-colors active:scale-98">M</button>
+<button class="h-12 border border-surface-container text-secondary font-body-md hover:border-primary hover:text-primary rounded-DEFAULT transition-colors active:scale-98">L</button>
+</div>
+</div>
+</section>
+<!-- Description (Skeleton to Content) -->
+<section class="px-margin-mobile py-6 flex flex-col gap-4 bg-surface-container-low">
+<h2 class="font-label-sm text-label-sm uppercase text-primary">Details</h2>
+<div class="flex flex-col gap-2" id="desc-skeleton">
+<div class="h-4 w-full shimmer rounded-DEFAULT"></div>
+<div class="h-4 w-5/6 shimmer rounded-DEFAULT"></div>
+<div class="h-4 w-4/6 shimmer rounded-DEFAULT"></div>
+</div>
+<div class="hidden opacity-0 transition-opacity duration-500 font-body-md text-body-md text-on-surface-variant space-y-4" id="desc-content">
+<p>Tailored from premium Italian wool blend, this structured blazer features sharp shoulders, an oversized fit, and tonal button closures. Designed to transcend seasons with minimalist elegance.</p>
+<ul class="list-disc pl-4 space-y-1 text-secondary">
+<li>70% Wool, 30% Recycled Polyester</li>
+<li>Notched lapels</li>
+<li>Double-breasted fastening</li>
+<li>Dry clean only</li>
+</ul>
+</div>
+</section>
+<!-- Related Products -->
+<section class="py-8 flex flex-col gap-4">
+<h2 class="font-label-sm text-label-sm uppercase text-primary px-margin-mobile">Complete The Look</h2>
+<div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar px-margin-mobile gap-4 pb-4">
+<!-- Related Item 1 -->
+<div class="w-48 flex-shrink-0 snap-start flex flex-col gap-2">
+<div class="aspect-[4/5] bg-surface-container rounded-DEFAULT overflow-hidden">
+<img alt="Trousers" class="w-full h-full object-cover" data-alt="A minimalist fashion photograph of wide-leg trousers in a light neutral shade. The studio lighting is bright and clean, emphasizing the drape and flow of the fabric. The styling is simple, focusing on the garment's silhouette against a stark white background. The image maintains a high-end, editorial feel suitable for a luxury e-commerce platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLrOufi46_V_R1AHVwL20uBZotf0CsulTIoS-YBIh3-jnx73GClSZ8p3anrvOzyfwJSmMjX67k4jnKqfHof1pQw62aJseNAlhnmh9O_lvGEPWUgFcboMOLg0igppyzc_k80hPEYPc1XBbZJm3Bojr4cZE2-wnqNKHwD9yLP19s2EV34dSqVUMha1cXSKysoAhdVq1luY-99S68ja8SiPZ6kdMxBIWqoAXE8PKt1rEl7FNI9TWJrN1Ai-CcLNx1hc3AFcXChgbTy5w">
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary truncate">Wide-Leg Wool Trousers</span>
+<span class="font-body-md text-body-md text-secondary">$ 280.00</span>
+</div>
+</div>
+<!-- Related Item 2 -->
+<div class="w-48 flex-shrink-0 snap-start flex flex-col gap-2">
+<div class="aspect-[4/5] bg-surface-container rounded-DEFAULT overflow-hidden">
+<img alt="Bag" class="w-full h-full object-cover" data-alt="A product shot of a sleek, structured leather handbag in matte black. The lighting highlights the subtle grain of the leather and the minimal metal hardware. Set against a pure white background, the image exudes modern luxury and quiet sophistication, aligning perfectly with a clean, high-contrast digital design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy0zO-Ymg8xTdO_o3wuCn0pZtuFg2GX9EE0NXW0cohvpicdHzsMAKyB8AmX8G2NS8xAO824eCeux6QHIFy0z_MIVMBMrByaUAdNEbnQ0U0L95lr9fN6Ifxw5so4I0Odap7-5fayDPGErjGmUFRjlCO-dFS8R6O5oz0FYRDqTXUVeX-exOkBCWeW_H0_FgJRGAuRdB4y9JglNEjHHDNNhnZZ1DSqF2edRH09ojtyPfBnEEQHKDcgje3wemNNYTVcKCOCKdRgq1uN24">
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary truncate">Mini Structured Tote</span>
+<span class="font-body-md text-body-md text-secondary">$ 320.00</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Persistent Add to Cart Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-background/95 backdrop-blur-md border-t border-surface-container p-4 pb-6 z-50 flex items-center gap-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<button class="flex-grow bg-primary text-on-primary h-12 rounded-DEFAULT font-label-sm text-label-sm uppercase tracking-widest flex items-center justify-center gap-2 scale-98 active:scale-95 transition-transform duration-200" onclick="addToCart(this)">
+<span>Add to Cart</span>
+<span class="material-symbols-outlined hidden" id="success-icon" style="font-variation-settings: 'FILL' 0;">check</span>
+</button>
+</div>
+<script>
+        // Simulate loading state removal
+        setTimeout(() => {
+            // Gallery
+            document.getElementById('gallery-skeleton').style.display = 'none';
+            const galleryContent = document.getElementById('gallery-content');
+            galleryContent.classList.remove('opacity-0');
+            galleryContent.classList.add('opacity-100');
+
+            // Description
+            document.getElementById('desc-skeleton').style.display = 'none';
+            const descContent = document.getElementById('desc-content');
+            descContent.classList.remove('hidden');
+            // Small delay to allow display:block to apply before transition
+            setTimeout(() => {
+                descContent.classList.remove('opacity-0');
+                descContent.classList.add('opacity-100');
+            }, 50);
+        }, 1500);
+
+        // Color selection logic
+        function selectColor(btn, colorName) {
+            // Reset rings
+            const buttons = btn.parentElement.querySelectorAll('button');
+            buttons.forEach(b => {
+                b.classList.remove('ring-primary');
+                b.classList.add('ring-transparent');
+            });
+            // Set active ring
+            btn.classList.remove('ring-transparent');
+            btn.classList.add('ring-primary');
+            // Update text
+            document.getElementById('selected-color-name').innerText = colorName;
+        }
+
+        // Add to Cart micro-interaction
+        function addToCart(btn) {
+            const spanText = btn.querySelector('span:first-child');
+            const icon = document.getElementById('success-icon');
+            
+            spanText.innerText = "Added";
+            icon.classList.remove('hidden');
+            btn.classList.replace('bg-primary', 'bg-tertiary-container');
+
+            setTimeout(() => {
+                spanText.innerText = "Add to Cart";
+                icon.classList.add('hidden');
+                btn.classList.replace('bg-tertiary-container', 'bg-primary');
+            }, 2000);
+        }
+    </script>
+</body></html>

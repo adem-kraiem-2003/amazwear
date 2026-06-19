@@ -1,0 +1,74 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+permissions:
+  contents: read
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HOW TO WIRE THIS PIPELINE
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. Choose a deploy target (Vercel, Railway, VPS via SSH, etc.)
+# 2. Create the required GitHub Secrets in:
+#    Repository → Settings → Secrets and variables → Actions
+#    See docs/SECRETS.md for the full list.
+# 3. Create a "production" Environment in:
+#    Repository → Settings → Environments → New environment
+#    Enable "Required reviewers" for the manual approval gate.
+# 4. Replace the placeholder steps below with your provider's deploy action.
+# ─────────────────────────────────────────────────────────────────────────────
+
+jobs:
+  deploy-staging:
+    name: Deploy → Staging
+    if: github.ref == 'refs/heads/develop' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "[TODO] Deploy to staging"
+        run: |
+          echo "Wire your staging deploy here."
+          echo "Example: npx vercel --token \${{ secrets.VERCEL_TOKEN }} --env preview"
+        # env:
+        #   DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN_STAGING }}
+        #   NEXT_PUBLIC_API_URL: ${{ vars.STAGING_API_URL }}
+
+      - name: Smoke test
+        run: |
+          echo "Replace STAGING_URL with your real staging URL."
+          # curl --fail --retry 3 --retry-delay 5 https://staging.example.com/api/health
+
+  deploy-production:
+    name: Deploy → Production
+    if: github.ref == 'refs/heads/main' && vars.DEPLOY_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production   # requires manual approval via GitHub Environments
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "[TODO] Deploy to production"
+        run: |
+          echo "Wire your production deploy here."
+          echo "Example: npx vercel --prod --token \${{ secrets.VERCEL_TOKEN }}"
+        # env:
+        #   DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN_PROD }}
+        #   NEXT_PUBLIC_API_URL: ${{ vars.PROD_API_URL }}
+
+      - name: Smoke test
+        run: |
+          echo "Replace PROD_URL with your real production URL."
+          # curl --fail --retry 3 --retry-delay 10 https://example.com/api/health
+
+      - name: Rollback on failure
+        if: failure()
+        run: |
+          echo "Rollback: redeploy the previous release tag."
+          echo "See docs/ROLLBACK.md for the manual procedure."

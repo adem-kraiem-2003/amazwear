@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE - Authentication</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+  @layer utilities {
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container-high": "#e8e8e8", "surface-container-low": "#f3f3f4",
+          "inverse-surface": "#2f3131", "surface-bright": "#f9f9f9", "on-error": "#ffffff",
+          "secondary-fixed-dim": "#c7c6c6", "primary": "#000000", "on-tertiary-container": "#838486",
+          "tertiary-fixed-dim": "#c6c6c8", "surface-variant": "#e2e2e2",
+          "surface-container-lowest": "#ffffff", "on-secondary-fixed-variant": "#464747",
+          "primary-fixed": "#e2e2e2", "on-primary-container": "#848484",
+          "surface-container-highest": "#e2e2e2", "tertiary": "#000000",
+          "on-surface-variant": "#4c4546", "on-primary": "#ffffff", "surface": "#f9f9f9",
+          "surface-dim": "#dadada", "on-tertiary-fixed": "#1a1c1d", "on-error-container": "#93000a",
+          "secondary": "#5e5e5e", "on-primary-fixed": "#1b1b1b", "tertiary-container": "#1a1c1d",
+          "error": "#ba1a1a", "on-secondary": "#ffffff", "error-container": "#ffdad6",
+          "surface-container": "#eeeeee", "secondary-container": "#e1dfdf",
+          "on-secondary-container": "#626262", "on-tertiary": "#ffffff", "surface-tint": "#5e5e5e",
+          "outline-variant": "#cfc4c5", "on-tertiary-fixed-variant": "#454749",
+          "on-background": "#1a1c1c", "secondary-fixed": "#e4e2e2", "background": "#f9f9f9",
+          "inverse-on-surface": "#f0f1f1", "outline": "#7e7576", "tertiary-fixed": "#e2e2e4",
+          "on-secondary-fixed": "#1b1c1c", "primary-fixed-dim": "#c6c6c6",
+          "primary-container": "#1b1b1b", "on-surface": "#1a1c1c", "inverse-primary": "#c6c6c6",
+          "on-primary-fixed-variant": "#474747"
+        },
+        "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        "spacing": { "margin-mobile": "20px", "unit": "8px", "margin-desktop": "64px", "gutter": "16px" },
+        "fontFamily": { "display-lg": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-sm": ["Inter"], "headline-md": ["Inter"], "display-lg-mobile": ["Inter"] },
+        "fontSize": {
+          "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+          "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+          "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+          "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+          "display-lg-mobile": ["36px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { min-height: 100dvh; }
+  @keyframes shimmer { 0%{background-position:-1000px 0} 100%{background-position:1000px 0} }
+  .processing-bg {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(to right,#000 4%,#333 25%,#000 36%);
+    background-size: 1000px 100%;
+  }
+</style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen font-body-md flex flex-col">
+
+<!-- Header -->
+<header class="w-full border-b border-outline-variant bg-surface flex justify-between items-center px-margin-desktop h-20">
+  <nav class="flex gap-8">
+    <a href="./catalogue.html" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors">Catalogue</a>
+    <a href="#" class="font-label-sm text-label-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors">New In</a>
+  </nav>
+  <a href="./catalogue.html" class="font-display-lg text-display-lg font-bold tracking-tighter text-primary absolute left-1/2 -translate-x-1/2">LUXE</a>
+  <div class="flex gap-6 items-center">
+    <button class="text-secondary hover:text-primary transition-colors">
+      <span class="material-symbols-outlined">search</span>
+    </button>
+    <button class="text-secondary hover:text-primary transition-colors">
+      <span class="material-symbols-outlined">shopping_bag</span>
+    </button>
+  </div>
+</header>
+
+<!-- Split layout -->
+<div class="flex flex-1">
+
+  <!-- Left — brand panel -->
+  <div class="hidden lg:flex flex-col justify-between w-1/2 bg-primary text-on-primary px-margin-desktop py-16">
+    <div>
+      <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-primary/50 mb-6">Members</p>
+      <h2 class="font-display-lg text-display-lg text-on-primary leading-tight max-w-xs">
+        Crafted for those who demand the best.
+      </h2>
+    </div>
+    <p class="font-body-md text-body-md text-on-primary/60 max-w-xs">
+      Access exclusive collections, early releases, and personalised curation.
+    </p>
+  </div>
+
+  <!-- Right — form panel -->
+  <div class="flex-1 flex flex-col items-center justify-center px-margin-mobile lg:px-margin-desktop py-16">
+    <div class="w-full max-w-sm">
+
+      <!-- Tabs -->
+      <div class="flex border-b border-surface-container mb-8">
+        <button id="tab-signin" onclick="switchTab('signin')"
+          class="flex-1 pb-4 border-b-2 border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest text-center transition-colors">
+          Sign In
+        </button>
+        <button id="tab-register" onclick="switchTab('register')"
+          class="flex-1 pb-4 border-b-2 border-transparent text-secondary font-label-sm text-label-sm uppercase tracking-widest text-center transition-colors hover:text-primary">
+          Create Account
+        </button>
+      </div>
+
+      <!-- SIGN IN PANEL -->
+      <div id="panel-signin">
+        <form id="form-signin" class="flex flex-col gap-6" onsubmit="handleSignIn(event)">
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="signin-email">Email Address</label>
+            <input class="w-full bg-surface-container-low border-none rounded focus:ring-1 focus:ring-primary h-12 px-4 font-body-md text-body-md text-primary placeholder:text-secondary-fixed-dim transition-shadow"
+              id="signin-email" placeholder="your@email.com" type="email" autocomplete="email"/>
+            <span id="signin-email-err" class="hidden text-error font-label-sm text-[10px]">Email required</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between items-baseline">
+              <label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="signin-pw">Password</label>
+              <a class="font-label-sm text-label-sm text-secondary hover:text-primary underline transition-colors" href="#">Forgot?</a>
+            </div>
+            <input class="w-full bg-surface-container-low border-none rounded focus:ring-1 focus:ring-primary h-12 px-4 font-body-md text-body-md text-primary transition-shadow"
+              id="signin-pw" placeholder="••••••••" type="password" autocomplete="current-password"/>
+            <span id="signin-pw-err" class="hidden text-error font-label-sm text-[10px]">Password required</span>
+          </div>
+          <button id="btn-signin" type="submit"
+            class="w-full h-12 mt-2 bg-primary text-on-primary rounded font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+            Sign In
+          </button>
+        </form>
+
+        <div class="mt-8 flex flex-col items-center gap-4">
+          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Or continue with</span>
+          <button onclick="simulateNav('./compte.html')"
+            class="w-full h-12 border border-surface-container rounded flex items-center justify-center gap-3 hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span class="font-body-md text-body-md text-primary">Google</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CREATE ACCOUNT PANEL -->
+      <div id="panel-register" class="hidden">
+        <form id="form-register" class="flex flex-col gap-6" onsubmit="handleRegister(event)">
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="reg-name">Full Name</label>
+            <input class="w-full bg-surface-container-low border-none rounded focus:ring-1 focus:ring-primary h-12 px-4 font-body-md text-body-md text-primary placeholder:text-secondary-fixed-dim transition-shadow"
+              id="reg-name" placeholder="Julian Vance" type="text" autocomplete="name"/>
+            <span id="reg-name-err" class="hidden text-error font-label-sm text-[10px]">Name required</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="reg-email">Email Address</label>
+            <input class="w-full bg-surface-container-low border-none rounded focus:ring-1 focus:ring-primary h-12 px-4 font-body-md text-body-md text-primary placeholder:text-secondary-fixed-dim transition-shadow"
+              id="reg-email" placeholder="your@email.com" type="email" autocomplete="email"/>
+            <span id="reg-email-err" class="hidden text-error font-label-sm text-[10px]">Valid email required</span>
+          </div>
+          <div class="flex flex-col gap-2">
+            <label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest" for="reg-pw">Password</label>
+            <input class="w-full bg-surface-container-low border-none rounded focus:ring-1 focus:ring-primary h-12 px-4 font-body-md text-body-md text-primary transition-shadow"
+              id="reg-pw" placeholder="Min. 8 characters" type="password" autocomplete="new-password"/>
+            <span id="reg-pw-err" class="hidden text-error font-label-sm text-[10px]">Min. 8 characters</span>
+          </div>
+          <button id="btn-register" type="submit"
+            class="w-full h-12 mt-2 bg-primary text-on-primary rounded font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all duration-200 flex items-center justify-center gap-2">
+            Create Account
+          </button>
+        </form>
+
+        <div class="mt-8 flex flex-col items-center gap-4">
+          <span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Or sign up with</span>
+          <button onclick="simulateNav('./compte.html')"
+            class="w-full h-12 border border-surface-container rounded flex items-center justify-center gap-3 hover:bg-surface-container-low transition-colors active:scale-95 duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span class="font-body-md text-body-md text-primary">Google</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchTab(tab) {
+    const tabs   = { signin: document.getElementById('tab-signin'),   register: document.getElementById('tab-register') };
+    const panels = { signin: document.getElementById('panel-signin'), register: document.getElementById('panel-register') };
+
+    Object.keys(tabs).forEach(k => {
+      const active = k === tab;
+      tabs[k].classList.toggle('border-primary', active);
+      tabs[k].classList.toggle('text-primary', active);
+      tabs[k].classList.toggle('border-transparent', !active);
+      tabs[k].classList.toggle('text-secondary', !active);
+      panels[k].classList.toggle('hidden', !active);
+    });
+  }
+
+  function simulateNav(url) {
+    document.body.style.opacity = '0.5';
+    document.body.style.transition = 'opacity 0.3s';
+    setTimeout(() => { window.location.href = url; }, 400);
+  }
+
+  function handleSignIn(e) {
+    e.preventDefault();
+    const email = document.getElementById('signin-email').value.trim();
+    const pw    = document.getElementById('signin-pw').value.trim();
+    let valid = true;
+
+    document.getElementById('signin-email-err').classList.add('hidden');
+    document.getElementById('signin-pw-err').classList.add('hidden');
+
+    if (!email) { document.getElementById('signin-email-err').classList.remove('hidden'); valid = false; }
+    if (!pw)    { document.getElementById('signin-pw-err').classList.remove('hidden'); valid = false; }
+    if (!valid) return;
+
+    const btn = document.getElementById('btn-signin');
+    btn.classList.add('processing-bg');
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:18px">progress_activity</span><span>Signing in…</span>';
+    btn.disabled = true;
+
+    setTimeout(() => simulateNav('./compte.html'), 1800);
+  }
+
+  function handleRegister(e) {
+    e.preventDefault();
+    const name  = document.getElementById('reg-name').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const pw    = document.getElementById('reg-pw').value.trim();
+    let valid = true;
+
+    document.getElementById('reg-name-err').classList.add('hidden');
+    document.getElementById('reg-email-err').classList.add('hidden');
+    document.getElementById('reg-pw-err').classList.add('hidden');
+
+    if (!name)                  { document.getElementById('reg-name-err').classList.remove('hidden'); valid = false; }
+    if (!email || !email.includes('@')) { document.getElementById('reg-email-err').classList.remove('hidden'); valid = false; }
+    if (pw.length < 8)          { document.getElementById('reg-pw-err').classList.remove('hidden'); valid = false; }
+    if (!valid) return;
+
+    const btn = document.getElementById('btn-register');
+    btn.classList.add('processing-bg');
+    btn.innerHTML = '<span class="material-symbols-outlined animate-spin" style="font-size:18px">progress_activity</span><span>Creating account…</span>';
+    btn.disabled = true;
+
+    setTimeout(() => simulateNav('./compte.html'), 1800);
+  }
+</script>
+
+</body></html>

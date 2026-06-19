@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE - Account Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-container": "#eeeeee", "tertiary": "#000000", "on-secondary-container": "#626262",
+          "inverse-on-surface": "#f0f1f1", "outline-variant": "#cfc4c5", "inverse-primary": "#c6c6c6",
+          "surface-bright": "#f9f9f9", "on-primary-container": "#848484", "surface-variant": "#e2e2e2",
+          "surface-container-highest": "#e2e2e2", "on-secondary-fixed": "#1b1c1c",
+          "primary-fixed-dim": "#c6c6c6", "surface-tint": "#5e5e5e", "secondary-container": "#e1dfdf",
+          "on-error": "#ffffff", "primary-container": "#1b1b1b", "tertiary-fixed": "#e2e2e4",
+          "surface-container-lowest": "#ffffff", "on-tertiary-container": "#838486",
+          "secondary-fixed-dim": "#c7c6c6", "secondary-fixed": "#e4e2e2",
+          "on-surface-variant": "#4c4546", "error": "#ba1a1a", "secondary": "#5e5e5e",
+          "on-secondary": "#ffffff", "inverse-surface": "#2f3131", "primary-fixed": "#e2e2e2",
+          "tertiary-container": "#1a1c1d", "on-tertiary-fixed-variant": "#454749",
+          "on-secondary-fixed-variant": "#464747", "on-primary-fixed-variant": "#474747",
+          "on-error-container": "#93000a", "surface-container-low": "#f3f3f4",
+          "on-tertiary": "#ffffff", "on-tertiary-fixed": "#1a1c1d", "outline": "#7e7576",
+          "background": "#f9f9f9", "on-surface": "#1a1c1c", "on-background": "#1a1c1c",
+          "surface": "#f9f9f9", "on-primary-fixed": "#1b1b1b", "surface-container-high": "#e8e8e8",
+          "on-primary": "#ffffff", "primary": "#000000", "tertiary-fixed-dim": "#c6c6c8",
+          "surface-dim": "#dadada", "error-container": "#ffdad6"
+        },
+        "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+        "spacing": { "aspect-ratio": "4:5", "unit": "8px", "gutter": "16px", "margin-mobile": "20px", "margin-desktop": "64px" },
+        "fontFamily": { "headline-md": ["Inter"], "display-lg-mobile": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "display-lg": ["Inter"] },
+        "fontSize": {
+          "headline-md": ["24px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+          "display-lg-mobile": ["36px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+          "body-md": ["16px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+          "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+          "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .scale-98 { transform: scale(0.98); }
+  .nav-item { transition: all 0.15s ease; }
+  .nav-item.active { color: #000; border-left: 2px solid #000; padding-left: 16px; font-weight: 600; }
+  .nav-item.active .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .nav-item:not(.active) { color: #626262; border-left: 2px solid transparent; padding-left: 16px; }
+  @keyframes shimmer { 0%{background-position:-1000px 0} 100%{background-position:1000px 0} }
+  .processing-bg { animation: shimmer 2s infinite linear; background: linear-gradient(to right,#000 4%,#333 25%,#000 36%); background-size: 1000px 100%; }
+  .input-subtle { border: none; border-bottom: 1px solid #cfc4c5; background: transparent; padding: 12px 0; transition: border-color 0.2s; width: 100%; font-size: 16px; }
+  .input-subtle:focus { outline: none; border-bottom-color: #000; box-shadow: none; }
+  .input-subtle::placeholder { color: #7e7576; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant flex justify-between items-center w-full px-margin-desktop h-20 z-50 relative">
+  <nav class="hidden md:flex gap-8">
+    <a class="font-body-md text-body-md tracking-tight text-on-secondary-container hover:text-primary transition-colors duration-200" href="./catalogue.html">New Arrivals</a>
+    <a class="font-body-md text-body-md tracking-tight text-on-secondary-container hover:text-primary transition-colors duration-200" href="./catalogue.html">Collection</a>
+    <a class="font-body-md text-body-md tracking-tight text-on-secondary-container hover:text-primary transition-colors duration-200" href="#">Editorial</a>
+  </nav>
+  <a href="./catalogue.html" class="font-headline-md text-headline-md tracking-[0.2em] font-black text-primary absolute left-1/2 transform -translate-x-1/2">LUXE</a>
+  <div class="flex gap-6 items-center">
+    <button class="scale-98 active:scale-95 transition-transform hover:text-primary text-on-secondary-container">
+      <span class="material-symbols-outlined">search</span>
+    </button>
+    <button class="scale-98 active:scale-95 transition-transform hover:text-primary text-on-secondary-container">
+      <span class="material-symbols-outlined">shopping_bag</span>
+    </button>
+    <button class="scale-98 active:scale-95 transition-transform text-primary border-b border-primary pb-1">
+      <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">person</span>
+    </button>
+  </div>
+</header>
+
+<div class="flex flex-1 relative">
+
+  <!-- SideNavBar -->
+  <aside class="fixed left-0 top-20 h-[calc(100vh-80px)] flex flex-col py-12 px-8 bg-surface-bright border-r border-outline-variant w-64 hidden md:flex flex-col z-40">
+    <div class="mb-12">
+      <div class="w-16 h-16 rounded-full bg-surface-container-highest overflow-hidden mb-4">
+        <img alt="User profile" class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXOOljjSgby13Bs4KXbir3yv2GxG8ZW_JGbX6zirRBpiTnV3lCJluwcolDDyydd_iBYsFRy4GIxZlQjMJv4cv012T3VmMW7bqiMfhFRgCeBIibdJo1Nmo6Ovm8AVCjmDSC9WB2bHFcpy2Tav2_bWvomoOIFVE9cFf3dyPVHvXvZtt5tAHFpJ1nuVbx1hPrMJXKv9Z0O1jYWyTfjgSrOLOX0UkiYOVSP8_MUnU8vBJipPD_PHmnqitOvbKxgF7iDnzcTMLWrEnBpVU"/>
+      </div>
+      <h2 class="font-headline-md text-headline-md text-primary mb-1">My Account</h2>
+      <p class="font-label-sm text-label-sm text-on-secondary-container tracking-widest uppercase">Premium Member</p>
+    </div>
+
+    <nav class="flex flex-col gap-1 flex-1">
+      <button id="nav-overview" onclick="switchSection('overview')"
+        class="nav-item active flex items-center gap-4 py-2 w-full text-left font-label-sm text-label-sm uppercase tracking-widest">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">grid_view</span>
+        Overview
+      </button>
+      <button id="nav-orders" onclick="switchSection('orders')"
+        class="nav-item flex items-center gap-4 py-2 w-full text-left font-label-sm text-label-sm uppercase tracking-widest hover:text-primary transition-colors">
+        <span class="material-symbols-outlined">shopping_bag</span>
+        Order History
+      </button>
+      <button id="nav-personal" onclick="switchSection('personal')"
+        class="nav-item flex items-center gap-4 py-2 w-full text-left font-label-sm text-label-sm uppercase tracking-widest hover:text-primary transition-colors">
+        <span class="material-symbols-outlined">person</span>
+        Personal Info
+      </button>
+      <button id="nav-addresses" onclick="switchSection('addresses')"
+        class="nav-item flex items-center gap-4 py-2 w-full text-left font-label-sm text-label-sm uppercase tracking-widest hover:text-primary transition-colors">
+        <span class="material-symbols-outlined">location_on</span>
+        Addresses
+      </button>
+      <button id="nav-security" onclick="switchSection('security')"
+        class="nav-item flex items-center gap-4 py-2 w-full text-left font-label-sm text-label-sm uppercase tracking-widest hover:text-primary transition-colors">
+        <span class="material-symbols-outlined">shield</span>
+        Security
+      </button>
+    </nav>
+
+    <!-- Sign Out -->
+    <button onclick="simulateNav('./auth.html')"
+      class="mt-8 w-full h-11 bg-transparent border border-outline text-primary font-label-sm text-label-sm uppercase tracking-widest rounded flex items-center justify-center gap-2 hover:bg-surface-container transition-colors active:scale-98">
+      <span class="material-symbols-outlined" style="font-size:18px">logout</span>
+      Sign Out
+    </button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 md:ml-64 px-margin-desktop py-12 bg-background min-h-[calc(100vh-80px)]">
+
+    <!-- OVERVIEW SECTION -->
+    <section id="section-overview">
+      <div class="mb-16">
+        <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">Welcome back, Julian.</h1>
+        <p class="font-body-lg text-body-lg text-on-secondary-container max-w-2xl">Here is an overview of your recent activity and account details.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-8 space-y-6">
+          <div class="flex justify-between items-end border-b border-outline-variant pb-4">
+            <h3 class="font-headline-md text-headline-md text-primary">Recent Orders</h3>
+            <button onclick="switchSection('orders')" class="font-label-sm text-label-sm uppercase tracking-widest text-on-secondary-container hover:text-primary transition-colors">View All</button>
+          </div>
+          <div class="bg-surface-bright rounded border border-outline-variant hover:border-primary transition-colors duration-300">
+            <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between md:items-center gap-6">
+              <div class="flex gap-6 items-start">
+                <div class="w-24 h-32 bg-surface-container-highest overflow-hidden rounded-sm flex-shrink-0">
+                  <img alt="Order item" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfHn33jJ4R_j1E9S6vI8OrIXG7WkxJK6uAj0yLNBvVwFf87HiA6Jue3QwS1c-qZhpStpmjdwqlIAtNf7vThAx95xHZeLcC34syn17tc22fCKy_9uOTgRmQPpBPa0XljPAFlHppAaz4MVXvJFgTIOqDzLrgtGHWgSDruZJAC5_cwGcqZx1542EL3n3EDWc3tjXeRVHxoU0SLT4caad5RPY_xArkxK1aM5qQq4J9W3a7Rp3r0e1BEKvBlZjzs7sCf5BnRD6Xb_7TchA"/>
+                </div>
+                <div class="space-y-2">
+                  <span class="inline-block bg-primary text-on-primary font-label-sm text-label-sm px-2 py-1 rounded-sm uppercase tracking-widest">Delivered</span>
+                  <h4 class="font-body-lg font-medium text-primary mt-2">Structured Leather Tote</h4>
+                  <p class="font-body-md text-body-md text-on-secondary-container">Order #LX-84729 · Oct 24, 2024</p>
+                </div>
+              </div>
+              <div class="text-right flex flex-col justify-between h-full">
+                <div class="font-headline-md text-headline-md text-primary mb-4">$1,245.00</div>
+                <button class="bg-transparent border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest py-3 px-6 rounded hover:bg-primary hover:text-on-primary transition-colors active:scale-98">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-4 space-y-6">
+          <div class="flex justify-between items-end border-b border-outline-variant pb-4">
+            <h3 class="font-headline-md text-headline-md text-primary">Personal Details</h3>
+          </div>
+          <div class="bg-surface p-6 border border-outline-variant rounded">
+            <div class="space-y-6">
+              <div><p class="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-1">Name</p><p class="font-body-lg text-body-lg text-primary">Julian Vance</p></div>
+              <div><p class="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-1">Email</p><p class="font-body-lg text-body-lg text-primary">julian.vance@example.com</p></div>
+              <div><p class="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-1">Phone</p><p class="font-body-lg text-body-lg text-primary">+1 (555) 123-4567</p></div>
+              <div class="pt-6 border-t border-outline-variant">
+                <button onclick="switchSection('personal')" class="text-primary font-label-sm text-label-sm uppercase tracking-widest underline hover:text-on-secondary-container transition-colors">Edit Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER HISTORY SECTION -->
+    <section id="section-orders" class="hidden">
+      <div class="mb-12">
+        <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2">Order History</h1>
+        <p class="font-body-lg text-body-lg text-on-secondary-container">All your past and current orders.</p>
+      </div>
+      <div class="space-y-4">
+        <div class="bg-surface-bright rounded border border-outline-variant hover:border-primary transition-colors duration-300 p-6 flex gap-6 items-center">
+          <div class="w-20 h-28 bg-surface-container-highest overflow-hidden rounded-sm flex-shrink-0">
+            <img alt="Order" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfHn33jJ4R_j1E9S6vI8OrIXG7WkxJK6uAj0yLNBvVwFf87HiA6Jue3QwS1c-qZhpStpmjdwqlIAtNf7vThAx95xHZeLcC34syn17tc22fCKy_9uOTgRmQPpBPa0XljPAFlHppAaz4MVXvJFgTIOqDzLrgtGHWgSDruZJAC5_cwGcqZx1542EL3n3EDWc3tjXeRVHxoU0SLT4caad5RPY_xArkxK1aM5qQq4J9W3a7Rp3r0e1BEKvBlZjzs7sCf5BnRD6Xb_7TchA"/>
+          </div>
+          <div class="flex-1">
+            <span class="inline-block bg-primary text-on-primary font-label-sm text-label-sm px-2 py-1 rounded-sm uppercase tracking-widest mb-2">Delivered</span>
+            <h4 class="font-body-lg font-medium text-primary">Structured Leather Tote</h4>
+            <p class="font-body-md text-body-md text-on-secondary-container">Order #LX-84729 · Oct 24, 2024</p>
+          </div>
+          <div class="text-right">
+            <p class="font-headline-md text-headline-md text-primary mb-3">$1,245.00</p>
+            <button class="border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest py-2 px-5 rounded hover:bg-primary hover:text-on-primary transition-colors">Details</button>
+          </div>
+        </div>
+        <div class="bg-surface-bright rounded border border-outline-variant hover:border-primary transition-colors duration-300 p-6 flex gap-6 items-center opacity-60">
+          <div class="w-20 h-28 bg-surface-container-highest overflow-hidden rounded-sm flex-shrink-0">
+            <img alt="Order" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5XrXUZ5buHJf_RjFW5--VqzmFVGRegcJSZCJlQ7NfeAaW4Vj8f3ex6pKE0a3a_OP7UQhKHH3UrbX6ELsO2nQTWk8Y00v1BxRhkosOtePB5JVWFPWRkF9kw72LbjUz1D8A_eE6YhEfiN_E0bFgeBIgLknHICnwfsUwmsNRcBl8C_yi5lFaFLNsPKiooI_sC24fuII9lJJfS1ULjgfRkoaenQc1XS7zextZUozEo3MUm2YFSxtwqpogPu23rqmqh3dl4FRsWPVgS6U"/>
+          </div>
+          <div class="flex-1">
+            <span class="inline-block bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-2 py-1 rounded-sm uppercase tracking-widest mb-2">Returned</span>
+            <h4 class="font-body-lg font-medium text-primary">Cashmere Blend Knit</h4>
+            <p class="font-body-md text-body-md text-on-secondary-container">Order #LX-84610 · Sep 12, 2024</p>
+          </div>
+          <div class="text-right"><p class="font-headline-md text-headline-md text-primary">$320.00</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONAL INFO SECTION -->
+    <section id="section-personal" class="hidden">
+      <div class="mb-12">
+        <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2">Personal Info</h1>
+        <p class="font-body-lg text-body-lg text-on-secondary-container">Manage your profile details.</p>
+      </div>
+      <div class="max-w-lg space-y-8">
+        <div class="grid grid-cols-2 gap-6">
+          <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">First Name</label>
+            <input class="input-subtle" value="Julian" type="text"/></div>
+          <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">Last Name</label>
+            <input class="input-subtle" value="Vance" type="text"/></div>
+        </div>
+        <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">Email Address</label>
+          <input class="input-subtle" value="julian.vance@example.com" type="email"/></div>
+        <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">Phone</label>
+          <input class="input-subtle" value="+1 (555) 123-4567" type="tel"/></div>
+        <button class="h-12 px-8 bg-primary text-on-primary rounded font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-98 transition-all duration-200">
+          Save Changes
+        </button>
+      </div>
+    </section>
+
+    <!-- ADDRESSES SECTION -->
+    <section id="section-addresses" class="hidden">
+      <div class="mb-12">
+        <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2">Addresses</h1>
+        <p class="font-body-lg text-body-lg text-on-secondary-container">Your saved shipping addresses.</p>
+      </div>
+      <div class="max-w-lg space-y-8">
+        <div class="bg-surface p-6 border border-outline-variant rounded">
+          <div class="flex justify-between items-start mb-4">
+            <span class="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest">Default</span>
+            <button class="font-label-sm text-label-sm uppercase tracking-widest text-primary underline hover:text-secondary transition-colors">Edit</button>
+          </div>
+          <p class="font-body-md text-body-md text-primary">1428 Elm Street<br/>Apt 4B<br/>New York, NY 10001<br/>United States</p>
+        </div>
+        <button class="w-full h-12 border border-outline text-primary font-label-sm text-label-sm uppercase tracking-widest rounded flex items-center justify-center gap-2 hover:bg-surface-container transition-colors active:scale-98">
+          <span class="material-symbols-outlined" style="font-size:18px">add</span>
+          Add New Address
+        </button>
+      </div>
+    </section>
+
+    <!-- SECURITY SECTION -->
+    <section id="section-security" class="hidden">
+      <div class="mb-12">
+        <h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2">Security</h1>
+        <p class="font-body-lg text-body-lg text-on-secondary-container">Manage your password and account access.</p>
+      </div>
+      <div class="max-w-lg space-y-8">
+        <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">Current Password</label>
+          <input class="input-subtle" placeholder="••••••••" type="password"/></div>
+        <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">New Password</label>
+          <input class="input-subtle" placeholder="Min. 8 characters" type="password"/></div>
+        <div><label class="font-label-sm text-label-sm text-secondary uppercase tracking-widest block mb-3">Confirm New Password</label>
+          <input class="input-subtle" placeholder="Repeat new password" type="password"/></div>
+        <button class="h-12 px-8 bg-primary text-on-primary rounded font-label-sm text-label-sm uppercase tracking-widest hover:opacity-90 active:scale-98 transition-all duration-200">
+          Update Password
+        </button>
+        <div class="pt-8 border-t border-outline-variant">
+          <p class="font-label-sm text-label-sm text-on-secondary-container uppercase tracking-widest mb-4">Danger Zone</p>
+          <button onclick="simulateNav('./auth.html')"
+            class="border border-error text-error font-label-sm text-label-sm uppercase tracking-widest py-3 px-6 rounded hover:bg-error hover:text-on-error transition-colors active:scale-98">
+            Sign Out of All Devices
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface border-t border-outline-variant md:hidden">
+  <a class="flex flex-col items-center justify-center text-on-secondary-container font-label-sm text-label-sm opacity-80 scale-98 transition-transform" href="./catalogue.html">
+    <span class="material-symbols-outlined">storefront</span>Shop
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-secondary-container font-label-sm text-label-sm opacity-80 scale-98 transition-transform" href="#">
+    <span class="material-symbols-outlined">search</span>Search
+  </a>
+  <a class="flex flex-col items-center justify-center text-on-secondary-container font-label-sm text-label-sm opacity-80 scale-98 transition-transform" href="#">
+    <span class="material-symbols-outlined">receipt_long</span>Orders
+  </a>
+  <a class="flex flex-col items-center justify-center text-primary font-bold font-label-sm text-label-sm opacity-80 scale-98 transition-transform" href="#">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 24">person</span>Account
+  </a>
+</nav>
+
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-desktop flex flex-col md:flex-row justify-between items-center bg-surface border-t border-outline-variant z-10 relative">
+  <a href="./catalogue.html" class="font-headline-md text-headline-md text-primary mb-6 md:mb-0 tracking-[0.2em] font-black hover:opacity-70 transition-opacity">LUXE</a>
+  <nav class="flex flex-wrap justify-center gap-8 mb-6 md:mb-0">
+    <a class="font-label-sm text-label-sm uppercase tracking-tighter text-on-secondary-container hover:text-primary" href="#">Sustainability</a>
+    <a class="font-label-sm text-label-sm uppercase tracking-tighter text-on-secondary-container hover:text-primary" href="#">Shipping &amp; Returns</a>
+    <a class="font-label-sm text-label-sm uppercase tracking-tighter text-on-secondary-container hover:text-primary" href="#">Privacy Policy</a>
+    <a class="font-label-sm text-label-sm uppercase tracking-tighter text-on-secondary-container hover:text-primary" href="#">Contact</a>
+  </nav>
+  <div class="font-label-sm text-label-sm uppercase tracking-tighter text-on-secondary-container">© 2024 LUXE GLOBAL. All Rights Reserved.</div>
+</footer>
+
+<script>
+  const sections = ['overview', 'orders', 'personal', 'addresses', 'security'];
+
+  function switchSection(id) {
+    sections.forEach(s => {
+      const section = document.getElementById('section-' + s);
+      const nav     = document.getElementById('nav-' + s);
+      const isActive = s === id;
+
+      section.classList.toggle('hidden', !isActive);
+      nav.classList.toggle('active', isActive);
+      if (!isActive) nav.classList.remove('active');
+
+      // Reset icon fill for non-active
+      const icon = nav.querySelector('.material-symbols-outlined');
+      if (icon) {
+        icon.style.fontVariationSettings = isActive
+          ? "'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24"
+          : "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24";
+      }
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function simulateNav(url) {
+    document.body.style.opacity = '0.5';
+    document.body.style.transition = 'opacity 0.3s';
+    setTimeout(() => { window.location.href = url; }, 400);
+  }
+</script>
+
+</body></html>
