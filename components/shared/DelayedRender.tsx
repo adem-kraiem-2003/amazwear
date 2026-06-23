@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function DelayedRender({ delay = 4000, fallback, children }: Props) {
+export default function DelayedRender({ delay = 800, fallback, children }: Props) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
