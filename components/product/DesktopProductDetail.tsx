@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import type { Product } from "@/lib/types";
 import DesktopImageGallery from "./DesktopImageGallery";
 import ColorSelector from "./ColorSelector";
@@ -14,10 +15,18 @@ type Props = {
   relatedProducts: Product[];
 };
 
+const accordionSections = [
+  { id: "description", label: "Description" },
+  { id: "shipping", label: "Shipping & Returns" },
+];
+
+const shippingContent = "Free standard shipping on orders over $150. Returns accepted within 30 days of delivery — items must be unworn and in original packaging.";
+
 export default function DesktopProductDetail({ product, relatedProducts }: Props) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]?.name ?? "");
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[0] ?? "");
   const [imageIndexState, setImageIndexState] = useState(0);
+  const [expanded, setExpanded] = useState<string[]>(["description"]);
 
   const [lastColorForIndex, setLastColorForIndex] = useState(selectedColor);
   const imageIndex = lastColorForIndex === selectedColor ? imageIndexState : 0;
@@ -29,6 +38,18 @@ export default function DesktopProductDetail({ product, relatedProducts }: Props
   const colorImgs = selectedColor ? product.colorImages?.[selectedColor] : undefined;
   const galleryImages: string[] = colorImgs?.length ? colorImgs : product.images;
   const cartImage = galleryImages[0] ?? product.images[0];
+
+  const toggle = (id: string) => {
+    setExpanded((prev) =>
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+    );
+  };
+
+  const getContent = (id: string) => {
+    if (id === "description") return product.description;
+    if (id === "shipping") return shippingContent;
+    return "";
+  };
 
   return (
     <main className="flex-grow w-full max-w-[1280px] mx-auto px-margin-desktop py-12">
@@ -55,20 +76,49 @@ export default function DesktopProductDetail({ product, relatedProducts }: Props
               selectedColorHex={product.colors.find((c) => c.name === selectedColor)?.hex}
               selectedSize={selectedSize}
             />
-            <div className="border-t border-outline-variant py-4 mt-8">
-              <button className="w-full flex justify-between items-center py-2 text-left group">
-                <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary">Description</span>
-                <PhosphorIcon icon="add" className="text-secondary group-hover:text-primary transition-colors" />
-              </button>
-              <div className="pt-2 pb-4 text-secondary font-body-md text-body-md">
-                {product.description}
-              </div>
-            </div>
-            <div className="border-t border-b border-outline-variant py-4">
-              <button className="w-full flex justify-between items-center py-2 text-left group">
-                <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary">Shipping &amp; Returns</span>
-                <PhosphorIcon icon="add" className="text-secondary group-hover:text-primary transition-colors" />
-              </button>
+
+            <div className="mt-8">
+              {accordionSections.map((section, idx) => {
+                const isOpen = expanded.includes(section.id);
+                return (
+                  <div
+                    key={section.id}
+                    className={`border-t border-outline-variant ${idx === accordionSections.length - 1 ? "border-b" : ""}`}
+                  >
+                    <button
+                      onClick={() => toggle(section.id)}
+                      className="w-full flex justify-between items-center py-4 text-left group"
+                      aria-expanded={isOpen}
+                    >
+                      <span className="font-label-sm text-label-sm uppercase tracking-widest text-primary">
+                        {section.label}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+                        className="text-secondary"
+                      >
+                        <PhosphorIcon icon="add" className="group-hover:text-primary transition-colors duration-150" />
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
+                          className="overflow-hidden"
+                        >
+                          <p className="pb-4 text-secondary font-body-md text-body-md">
+                            {getContent(section.id)}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

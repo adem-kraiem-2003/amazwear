@@ -47,13 +47,13 @@ export default function MenuDrawer() {
   return (
     <div className="fixed inset-0 z-50 flex">
       <div
-        className={`absolute inset-0 bg-primary/20 backdrop-blur-md transition-all duration-300 ${
+        className={`absolute inset-0 bg-primary/20 backdrop-blur-md transition-opacity duration-300 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
         onClick={triggerClose}
       />
       <nav
-        className={`relative h-full w-[85%] max-w-[320px] bg-surface-container-lowest z-50 flex flex-col shadow-2xl transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative h-full w-[85%] max-w-[320px] bg-surface-container-lowest z-50 flex flex-col shadow-2xl transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${
           visible ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -86,11 +86,11 @@ export default function MenuDrawer() {
               style={{
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateX(0)" : "translateX(-16px)",
-                transition: `all 0.4s cubic-bezier(0.16,1,0.3,1) ${idx * 60 + 80}ms`,
+                transition: `opacity 0.4s cubic-bezier(0.16,1,0.3,1) ${idx * 60 + 80}ms, transform 0.4s cubic-bezier(0.16,1,0.3,1) ${idx * 60 + 80}ms`,
               }}
             >
               <span>{link.label}</span>
-              <PhosphorIcon icon="arrow_forward" className="opacity-0 group-hover:opacity-100 transition-all transform -translate-x-4 group-hover:translate-x-0 duration-300" />
+              <PhosphorIcon icon="arrow_forward" className="opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-[opacity,transform] -translate-x-4 [@media(hover:hover)]:group-hover:translate-x-0 duration-300" />
             </Link>
           ))}
         </div>

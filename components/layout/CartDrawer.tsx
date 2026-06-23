@@ -50,13 +50,13 @@ export default function CartDrawer() {
       role="dialog"
     >
       <div
-        className={`absolute inset-0 bg-background/80 backdrop-blur-md transition-all duration-300 ${
+        className={`absolute inset-0 bg-background/80 backdrop-blur-md transition-opacity duration-300 ${
           visible ? "opacity-100" : "opacity-0"
         }`}
         onClick={triggerClose}
       />
       <div
-        className={`relative w-full max-w-[90%] md:max-w-md h-full bg-background flex flex-col border-l border-surface-container shadow-2xl transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`relative w-full max-w-[90%] md:max-w-md h-full bg-background flex flex-col border-l border-surface-container shadow-2xl transition-transform duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] ${
           visible ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -69,7 +69,7 @@ export default function CartDrawer() {
           </h2>
           <button
             aria-label="Close cart"
-            className="p-2 -mr-2 text-secondary hover:text-primary transition-all flex items-center justify-center rounded-full hover:bg-surface-container hover:scale-110 active:scale-90 duration-200"
+            className="p-2 -mr-2 text-secondary hover:text-primary transition-[color,transform,background-color] flex items-center justify-center rounded-full hover:bg-surface-container [@media(hover:hover)]:hover:scale-110 active:scale-90 duration-200"
             onClick={triggerClose}
           >
             <PhosphorIcon icon="close" />
@@ -175,7 +175,7 @@ export default function CartDrawer() {
           </div>
           <Link
             href="/checkout"
-            className="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-on-surface transition-all scale-100 active:scale-[0.98] duration-200"
+            className="w-full bg-primary text-on-primary font-label-sm text-label-sm uppercase tracking-widest py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-on-surface transition-[background-color,transform] active:scale-[0.98] duration-200"
             onClick={triggerClose}
           >
             <span>Continue to Checkout</span>

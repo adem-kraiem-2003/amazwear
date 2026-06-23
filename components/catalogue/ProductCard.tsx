@@ -38,7 +38,7 @@ export default function ProductCard({ product }: Props) {
           )}
           <img
             alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] [@media(hover:hover)]:group-hover:scale-105"
             src={product.images[0] ?? ""}
             loading="lazy"
           />
@@ -46,9 +46,9 @@ export default function ProductCard({ product }: Props) {
             type="button"
             onClick={handleQuickAdd}
             aria-label={`Add ${product.name} to cart`}
-            className="absolute bottom-4 right-4 z-10 bg-primary text-on-primary w-10 h-10 rounded-full flex items-center justify-center md:hidden active:scale-95 transition-transform duration-150"
+            className="absolute bottom-4 right-4 z-10 bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center md:hidden active:scale-90 transition-transform duration-150"
           >
-            <PhosphorIcon icon="add" size={20} />
+            <PhosphorIcon icon="add" size={22} />
           </button>
         </div>
         <div className="flex flex-col gap-1.5">
@@ -77,7 +77,7 @@ export default function ProductCard({ product }: Props) {
               ))}
             </div>
           )}
-          <span className="mt-1 font-label-sm text-label-sm text-secondary underline underline-offset-2 group-hover:text-primary transition-colors duration-150 w-max">
+          <span className="mt-1 font-label-sm text-label-sm text-secondary underline underline-offset-2 [@media(hover:hover)]:group-hover:text-primary transition-colors duration-150 w-max">
             View product
           </span>
         </div>

@@ -5,6 +5,7 @@ import type { Category, Product } from "@/lib/types";
 import SearchBar from "./SearchBar";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
+import FadeInSection from "@/components/shared/FadeInSection";
 
 type Props = {
   products: Product[];
@@ -23,8 +24,10 @@ export default function MobileCatalogue({ products, categories: _categories }: P
     <main className="px-margin-mobile pt-6 flex flex-col gap-8">
       <SearchBar />
       <div className="flex flex-col gap-10">
-        {visible.map((p) => (
-          <ProductCard key={p.id} product={p} />
+        {visible.map((p, idx) => (
+          <FadeInSection key={p.id} delay={idx * 0.04} once={false}>
+            <ProductCard product={p} />
+          </FadeInSection>
         ))}
       </div>
       <Pagination page={page} totalPages={totalPages} onChange={setPage} />

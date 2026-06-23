@@ -18,13 +18,13 @@ export default function DesktopHeader() {
   return (
     <header
       id="main-header"
-      className={`w-full top-0 bg-surface z-50 sticky transition-all duration-300 ${
+      className={`w-full top-0 bg-surface z-50 sticky transition-[box-shadow,background-color,backdrop-filter] duration-300 ${
         scrolled ? "shadow-sm bg-surface/95 backdrop-blur-md" : ""
       }`}
     >
       <div className="flex justify-between items-center w-full px-margin-desktop py-8 max-w-[1440px] mx-auto">
         <div className="flex-1 flex items-center">
-          <button aria-label="Search" className="text-secondary hover:text-primary transition-colors duration-200 mr-2">
+          <button aria-label="Search" className="text-secondary [@media(hover:hover)]:hover:text-primary transition-colors duration-200 mr-2">
             <PhosphorIcon icon="search" className="font-label-sm" />
           </button>
           <input className="bg-transparent border-none outline-none text-body-md font-body-md w-full placeholder-secondary-fixed focus:ring-0" placeholder="Search" type="text" />
