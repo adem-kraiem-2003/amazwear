@@ -1,16 +1,37 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import SuccessAnimation from "./SuccessAnimation";
+
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
+function fadeUp(delay: number) {
+  return {
+    initial: { opacity: 0, y: 16 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, ease: EASE, delay },
+  };
+}
 
 export default function DesktopSuccess() {
   return (
     <main className="flex-grow flex flex-col items-center justify-center px-margin-desktop py-24">
       <div className="w-full max-w-[600px] flex flex-col items-center text-center">
         <SuccessAnimation />
-        <h1 className="font-display-lg text-display-lg text-primary mb-4">Confirmed</h1>
-        <p className="font-body-lg text-body-lg text-secondary mb-12">
+
+        <motion.h1 {...fadeUp(0.7)} className="font-display-lg text-display-lg text-primary mb-4">
+          Confirmed
+        </motion.h1>
+
+        <motion.p {...fadeUp(0.85)} className="font-body-lg text-body-lg text-secondary mb-12">
           Your order has been placed successfully. A confirmation email has been sent to your registered address.
-        </p>
-        <div className="w-full bg-surface rounded-lg border border-surface-container p-8 mb-12 text-left flex flex-col md:flex-row gap-8 items-start">
+        </motion.p>
+
+        <motion.div
+          {...fadeUp(1.0)}
+          className="w-full bg-surface rounded-lg border border-surface-container p-8 mb-12 text-left flex flex-col md:flex-row gap-8 items-start"
+        >
           <div className="w-24 h-32 bg-surface-container-low shrink-0 relative overflow-hidden rounded">
             <img
               alt="Oversized Linen Shirt in Bone"
@@ -26,15 +47,22 @@ export default function DesktopSuccess() {
             </div>
             <div className="mt-4 font-headline-md text-headline-md text-primary">$145.00</div>
           </div>
-        </div>
-        <div className="w-full flex flex-col md:flex-row gap-4 justify-center">
-          <Link href="/" className="bg-primary text-on-primary font-label-sm text-label-sm tracking-widest uppercase py-4 px-8 rounded flex-1 md:flex-none hover:bg-surface-tint transition-colors text-center">
+        </motion.div>
+
+        <motion.div {...fadeUp(1.15)} className="w-full flex flex-col md:flex-row gap-4 justify-center">
+          <Link
+            href="/"
+            className="bg-primary text-on-primary font-label-sm text-label-sm tracking-widest uppercase py-4 px-8 rounded flex-1 md:flex-none [@media(hover:hover)]:hover:bg-surface-tint transition-[background-color,transform] duration-200 text-center active:scale-[0.98]"
+          >
             Return to Catalog
           </Link>
-          <Link href="#" className="bg-transparent border border-primary text-primary font-label-sm text-label-sm tracking-widest uppercase py-4 px-8 rounded flex-1 md:flex-none hover:bg-surface-container-low transition-colors text-center">
+          <Link
+            href="#"
+            className="bg-transparent border border-primary text-primary font-label-sm text-label-sm tracking-widest uppercase py-4 px-8 rounded flex-1 md:flex-none [@media(hover:hover)]:hover:bg-surface-container-low transition-[background-color,transform] duration-200 text-center active:scale-[0.98]"
+          >
             View Order Status
           </Link>
-        </div>
+        </motion.div>
       </div>
     </main>
   );

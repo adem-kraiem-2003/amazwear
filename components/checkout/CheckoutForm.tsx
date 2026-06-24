@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import PhosphorIcon from "@/components/shared/PhosphorIcon";
 import { useCartStore } from "@/stores/cart-store";
 import { createOrder } from "@/lib/api";
 
+const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
 export default function CheckoutForm() {
+  const router = useRouter();
   const cartItems = useCartStore((s) => s.cartItems);
   const removeItem = useCartStore((s) => s.removeItem);
 
@@ -20,7 +25,6 @@ export default function CheckoutForm() {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [apiError, setApiError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
-  const [confirmed, setConfirmed] = useState(false);
 
   const validate = () => {
     const errs: Record<string, boolean> = {};
@@ -61,12 +65,11 @@ export default function CheckoutForm() {
       })),
     });
 
-    setProcessing(false);
-
     if (result.success) {
       cartItems.forEach((item) => removeItem(item.id, item.color, item.size));
-      setConfirmed(true);
+      router.push("/order-confirmed");
     } else {
+      setProcessing(false);
       const msg =
         typeof result.error === "string"
           ? result.error
@@ -79,18 +82,6 @@ export default function CheckoutForm() {
     `input-underline w-full font-body-md text-body-md text-primary placeholder-outline-variant ${
       errors[field] ? "error" : ""
     }`;
-
-  if (confirmed) {
-    return (
-      <div className="flex flex-col items-center justify-center py-16 text-center">
-        <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
-          <PhosphorIcon icon="check" className="text-on-primary" fill={1} size={24} />
-        </div>
-        <h2 className="font-headline-md text-headline-md text-primary mb-2">Order Confirmed</h2>
-        <p className="font-body-md text-body-md text-secondary">Thank you for your purchase.</p>
-      </div>
-    );
-  }
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit}>
@@ -176,16 +167,35 @@ export default function CheckoutForm() {
       <button
         type="submit"
         disabled={processing}
-        className={`w-full h-12 rounded font-body-md text-body-md font-medium flex items-center justify-center transition-all duration-200 ${
-          processing
-            ? "processing-bg text-on-primary"
-            : "bg-primary text-on-primary active:scale-98"
+        className={`w-full h-12 rounded font-body-md text-body-md font-medium flex items-center justify-center overflow-hidden transition-[background-color,transform] duration-200 active:scale-[0.98] ${
+          processing ? "processing-bg text-on-primary" : "bg-primary text-on-primary"
         }`}
       >
-        <span>{processing ? "Processing..." : "Complete Order"}</span>
-        {processing && (
-          <PhosphorIcon icon="progress_activity" className="animate-spin ml-2" size={16} />
-        )}
+        <AnimatePresence mode="wait" initial={false}>
+          {processing ? (
+            <motion.span
+              key="processing"
+              className="flex items-center gap-2"
+              initial={{ opacity: 0, filter: "blur(4px)", y: 6 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              exit={{ opacity: 0, filter: "blur(4px)", y: -6 }}
+              transition={{ duration: 0.2, ease: EASE }}
+            >
+              Processing
+              <PhosphorIcon icon="progress_activity" className="animate-spin" size={16} />
+            </motion.span>
+          ) : (
+            <motion.span
+              key="submit"
+              initial={{ opacity: 0, filter: "blur(4px)", y: 6 }}
+              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              exit={{ opacity: 0, filter: "blur(4px)", y: -6 }}
+              transition={{ duration: 0.2, ease: EASE }}
+            >
+              Complete Order
+            </motion.span>
+          )}
+        </AnimatePresence>
       </button>
       <style jsx>{`
         .input-underline {
